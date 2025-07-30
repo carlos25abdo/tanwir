@@ -1,0 +1,409 @@
+<!-- الصفحة الرئيسية: السلايدر والأخبار -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تنوير | الرئيسية</title>
+  <style>
+    /* ... انسخ التنسيقات من ملفك الحالي ... */
+    body {
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #111;
+      direction: rtl;
+    }
+    .navbar {
+      background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
+      padding: 10px 0;
+    }
+    .container {
+      width: 95%;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+    .logo img {
+      height: 50px;
+    }
+    .nav-links ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li a {
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s ease;
+      color: white;
+      text-decoration: none;
+    }
+    .nav-links li a:hover {
+      color: #ffd700;
+    }
+    .slider {
+      position: relative;
+      max-width: 800px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.25);
+      box-shadow: 0 4px 24px #007bff33;
+      border: 3px solid #007BFF;
+      backdrop-filter: blur(8px);
+    }
+    .slider img {
+      width: 100%;
+      display: block;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+      background: #eee;
+    }
+    .slider-dots {
+      position: absolute;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      z-index: 2;
+    }
+    .slider-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #ccc;
+      border: 2px solid #007BFF;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: inline-block;
+    }
+    .slider-dot.active {
+      background: #007BFF;
+    }
+    
+    /* تنسيقات قسم الأخبار */
+    .news-section {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+    .news-title {
+      text-align: center;
+      color: #007BFF;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      border-bottom: 3px solid #007BFF;
+      padding-bottom: 15px;
+    }
+    .news-item {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 123, 255, 0.15);
+      margin-bottom: 40px;
+      overflow: hidden;
+      border: 2px solid #f0f0f0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .news-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 123, 255, 0.25);
+    }
+    .news-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+    .news-content {
+      padding: 25px;
+    }
+    .news-headline {
+      color: #007BFF;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+    .news-summary {
+      color: #333;
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+    .news-details {
+      color: #666;
+      font-size: 14px;
+      text-align: center;
+      border-top: 1px solid #eee;
+      padding-top: 15px;
+      margin-top: 20px;
+    }
+    .news-source {
+      color: #007BFF;
+      font-weight: bold;
+    }
+    .news-date {
+      color: #888;
+      margin-right: 10px;
+    }
+    .news-link {
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .news-link:hover {
+      text-decoration: underline;
+    }
+    
+    .footer {
+      background-color: #f0f0f0;
+      text-align: center;
+      padding: 20px;
+      color: #333;
+      margin-top: 40px;
+    }
+    .social-icons {
+      margin-bottom: 10px;
+    }
+    .social-icons a {
+      margin: 0 8px;
+    }
+    .social-icons img {
+      width: 32px;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <div class="logo">
+        <img src="logo.png" alt="شعار تنوير">
+      </div>
+      <nav class="nav-links">
+        <ul>
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="articles.html">مقالات</a></li>
+          <li><a href="reports.html">تقارير</a></li>
+          <li><a href="#">مقابلات</a></li>
+          <li><a href="#">انفوجراف</a></li>
+          <li><a href="about.html">من نحن</a></li>
+          <li><a href="#">تسجيل دخول</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="slider">
+      <img id="slider-img" src="صور السلايد/slide1.png" alt="صورة 1">
+      <div class="slider-dots" id="slider-dots"></div>
+    </div>
+
+    <!-- قسم الأخبار -->
+    <section class="news-section">
+      <h2 class="news-title">أحدث الأخبار</h2>
+      
+      <article class="news-item">
+        <img src="1.jpg" alt="فضيحة قائمة كتب صيفية" class="news-image">
+        <div class="news-content">
+          <h3 class="news-headline">فضيحة قائمة كتب صيفية: هل يمكن الوثوق بالذكاء الاصطناعي في إنتاج المحتوى الإعلامي؟</h3>
+          <p class="news-summary">
+            في صيف 2025، تعرضت صحيفتان أمريكيتان شهيرتان لفضيحة بعد نشر قائمة كتب صيفية ضمن ملحق "Heat Index"، تضمنت عناوين كتب وأقوالًا منسوبة لخبراء غير موجودين، وذلك بعد أن تم توليد المحتوى بالكامل بواسطة أدوات الذكاء الاصطناعي دون تحقق بشري أو مراجعة دقيقة.
+          </p>
+          <p class="news-summary">
+            نشرت كل من Chicago Sun‑Times وPhiladelphia Inquirer قائمة الكتب الصادرة صيفًا، والتي كانت مفترضًا أن تقدم توصيات ثقافية للقراء. لكن سرعان ما اكتُشف أن العديد من الكتب المذكورة في القائمة ليست حقيقية، وأن بعض الاقتباسات المنسوبة لخبراء وشخصيات بارزة مزيفة بالكامل.
+          </p>
+          <p class="news-summary">
+            تم استخدام برامج ذكاء اصطناعي لتوليد هذه القائمة، إلا أن غياب المراجعة البشرية سمح بنشر محتوى مضلل وغير دقيق. بعد انكشاف الأمر، أزيلت القائمة من كلا الصحيفتين، وتم فصل الكاتب الذي كان مسؤولًا عن إعداد هذه التوصيات.
+          </p>
+          <p class="news-summary">
+            أثارت هذه الحادثة موجة من الانتقادات في الأوساط الإعلامية حول مدى الاعتماد المفرط على تقنيات الذكاء الاصطناعي دون رقابة بشرية. دعا خبراء الإعلام إلى ضرورة وضع معايير صارمة تضمن دمج التدقيق البشري مع استخدام الذكاء الاصطناعي، للحفاظ على مصداقية وجودة المحتوى الإعلامي.
+          </p>
+          <p class="news-summary">
+            تعكس هذه الفضيحة التحديات التي تواجه الإعلام في عصر الذكاء الاصطناعي، وتبرز الحاجة الملحة إلى التوازن بين الاستفادة من التكنولوجيا وضمان جودة وموثوقية الأخبار والمحتوى المقدم للجمهور.
+          </p>
+          <div class="news-details">
+            <span class="news-date">تاريخ النشر: يوليو 2025</span>
+            <span class="news-source">المصدر: AP News</span>
+            <br>
+            <a href="https://apnews.com/article/fcdf454a5b467dad3adfed6ca1a224d2?utm_source=chatgpt.com" target="_blank" class="news-link">اقرأ المزيد</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="news-item">
+        <img src="2.jpg" alt="الذكاء الاصطناعي يُغيّر قواعد الصحافة" class="news-image">
+        <div class="news-content">
+          <h3 class="news-headline">الذكاء الاصطناعي يُغيّر قواعد الصحافة: تجديد في المهام صحافيًا مع تحديات مهنية</h3>
+          <p class="news-summary">
+            في 22 مايو 2025، أكّد باحثون وصحفيون أن الذكاء الاصطناعي لم يستبدل الإنسان بعد، لكنه بدأ يُحدث تغيرات جوهرية في بيئة العمل الصحفي، خاصة في المهام التحريرية والبحثية، ويثير تساؤلات حول مدى جاهزية المؤسسات الإعلامية لمواجهة هذه التحولات.
+          </p>
+          <p class="news-summary">
+            قال الكاتب عثمان كباشي من الجزيرة إن الذكاء الاصطناعي "طرح العديد من الأسئلة حول كيفية التعاطي معه، لتحقيق الفائدة القصوى من إمكانياته" دون فقدان الجودة المهنية.
+          </p>
+          <p class="news-summary">
+            أشار إلى أن أهم وظائف الذكاء الاصطناعي اليوم تشمل البحث، الترجمة، التلخيص، اقتراح الأفكار، كتابة العناوين، والتحليل البسيط للنصوص والمعلومات.
+          </p>
+          <p class="news-summary">
+            لكن حسب تقرير لمركز تاو للصحافة الرقمية بالتعاون مع جامعة أكسفورد، فإن دور الذكاء الاصطناعي في غرف الأخبار لا يزال مقتصرًا على المهام الروتينية، وليس التحريرية المعقدة.
+          </p>
+          <p class="news-summary">
+            كما أظهرت بيانات أن الاستخدام الفعلي للتقنيات الذكائية يختلف حسب مستوى التدريب والبنية التحتية داخل المؤسسات الإعلامية، ما يعقب الفجوة المعرفية بين المهندسين والمحررين.
+          </p>
+          <p class="news-summary">
+            بينما يواصل الذكاء الاصطناعي الدخول إلى غرف الأخبار، يبقى التحدي الحقيقي في مقاومة الاعتماد المفرط عليه دون تأهيل رقمي أو رقابة بشرية. صحيح أن هذه الأدوات تُسرّع وتُيسّر العمل الصحفي، لكنها تحتاج إطارًا تنظيميًا وتدريبًا مستمرًا لضمان أنها تعزز المهنة بدل أن تُضعفها، وتُوظف من أجل الصحافة وليس ضد قيمها.
+          </p>
+          <div class="news-details">
+            <span class="news-date">تاريخ النشر: 22 مايو 2025</span>
+            <span class="news-source">المصدر: الجزيرة نت</span>
+            <br>
+            <a href="https://aja.ws/hn1zv1" target="_blank" class="news-link">اقرأ المزيد</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="news-item">
+        <img src="3.jpg" alt="Google تقتل الصحافة الرقمية" class="news-image">
+        <div class="news-content">
+          <h3 class="news-headline">هل Google تقتل الصحافة الرقمية؟ ملخصات الذكاء الاصطناعي تُحدث صدمة في عدد زيارات المواقع الإخبارية</h3>
+          <p class="news-summary">
+            تشهد المواقع الإخبارية عبر الإنترنت تراجعًا كبيرًا في أعداد الزوار، وذلك بعد إطلاق Google خاصية "الملخصات الذكية" المدعومة بالذكاء الاصطناعي في نتائج البحث. تشير الدراسات الحديثة إلى أن هذه الخاصية تسببت في انخفاض يصل إلى 80% في عدد النقرات على الروابط الأصلية للمواقع الإخبارية.
+          </p>
+          <p class="news-summary">
+            خاصية "AI Overviews" التي تقدم ملخصات ذكية تظهر في أعلى نتائج البحث، تُمكّن المستخدم من الحصول على المعلومات دون الحاجة لزيارة الموقع الأصلي، مما أدى إلى تراجع ملحوظ في حركة المرور على المواقع الإخبارية.
+          </p>
+          <p class="news-summary">
+            دراسات تحليلية من شركات مثل Authoritas وChartbeat أوضحت أن هذا التأثير يشمل كل من مستخدمي أجهزة الكمبيوتر والهواتف المحمولة، حيث شهدت المواقع خسائر كبيرة في نسب الزيارات.
+          </p>
+          <p class="news-summary">
+            ناشرو الأخبار والصحفيون أعربوا عن قلقهم من أن هذه الخاصية قد تؤدي إلى تآكل مصادر الدخل لديهم، وتهدد استمرار الصحافة الرقمية كمصدر مستقل وموثوق.
+          </p>
+          <p class="news-summary">
+            من جهة أخرى، دافعت Google عن التقنية الجديدة، مشيرة إلى أنها لا تزال ترسل مليارات الزيارات إلى المواقع الإخبارية شهريًا، وأن التغيرات في نسب الزيارات قد تكون مؤقتة أو نتيجة عوامل تقنية أخرى مثل تغييرات في خوارزميات البحث أو المواسم المختلفة.
+          </p>
+          <p class="news-summary">
+            أشارت الدراسة إلى أن الاعتماد على ملخصات الذكاء الاصطناعي أدى إلى زيادة في عمليات البحث دون نقرة (zero-click searches)، حيث يحصل المستخدم على المعلومة مباشرة من نتائج البحث دون الحاجة لزيارة أي موقع.
+          </p>
+          <p class="news-summary">
+            كما لوحظ تزايد ظهور روابط الفيديو على YouTube في نتائج البحث، مما زاد من نسب مشاهدة الفيديوهات على حساب قراءة المقالات الإخبارية.
+          </p>
+          <p class="news-summary">
+            ناشد الناشرون الجهات التنظيمية مثل المفوضية الأوروبية وهيئات المنافسة في بريطانيا للنظر في تأثير هذه التكنولوجيا على استقلالية الإعلام الرقمي وحماية مصادر الدخل للناشرين.
+          </p>
+          <p class="news-summary">
+            يمثل هذا التطور في تقنيات البحث والذكاء الاصطناعي نقطة تحول مهمة في العلاقة بين التكنولوجيا ووسائل الإعلام، مما يفرض تحديات جديدة على الصحافة الرقمية فيما يتعلق بالحفاظ على جمهورها ومصادر تمويلها في ظل تغير أنماط استهلاك الأخبار.
+          </p>
+          <div class="news-details">
+            <span class="news-date">تاريخ النشر: 24 يوليو 2025</span>
+            <span class="news-source">المصدر: The Guardian</span>
+            <br>
+            <a href="https://www.theguardian.com/technology/2025/jul/24/ai-summaries-causing-devastating-drop-in-online-news-audiences-study-finds?utm_source=chatgpt.com" target="_blank" class="news-link">اقرأ المزيد</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="news-item">
+        <img src="4.jpg" alt="ورشة تدريبية للصحفيين حول الذكاء الاصطناعي" class="news-image">
+        <div class="news-content">
+          <h3 class="news-headline">وزارة الاتصالات تنظم ورشة تدريبية للصحفيين حول الذكاء الاصطناعي</h3>
+          <p class="news-summary">
+            أعلنت نقابة الصحفيين المصريين عن تنظيم ورشة تدريبية تحت عنوان "الذكاء الاصطناعي التوليدي للصحفيين" (Generative AI for Journalists)، بالتعاون مع وزارة الاتصالات وهيئة تنمية صناعة تكنولوجيا المعلومات (ITIDA)، وذلك في إطار مبادرة "مصر الرقمية" التي تهدف إلى دعم التحول الرقمي وتطوير الكفاءات الإعلامية.
+          </p>
+          <p class="news-summary">
+            تهدف الورشة إلى تدريب الصحفيين على استخدام تقنيات الذكاء الاصطناعي في إعداد المحتوى، تحليل البيانات، وتحسين الإنتاج الإعلامي. وتأتي هذه الخطوة في ظل تزايد الاعتماد على أدوات الذكاء الاصطناعي في مختلف مجالات العمل الصحفي والإعلامي.
+          </p>
+          <p class="news-summary">
+            ومن المقرر أن تُعقد الورشة خلال شهر أغسطس 2025 داخل مركز الإبداع التكنولوجي، وتُتاح المشاركة لعدد محدود من الصحفيين وفق أسبقية التسجيل. يُفتح باب التقديم عبر رابط إلكتروني خصصته النقابة لهذا الغرض.
+          </p>
+          <p class="news-summary">
+            وتُعد هذه الورشة جزءًا من جهود متواصلة لدمج التكنولوجيا في المجال الإعلامي، وتمكين الصحفيين من مواكبة التطورات الرقمية والتقنيات الحديثة في غرف الأخبار.
+          </p>
+          <div class="news-details">
+            <span class="news-date">تاريخ النشر: أغسطس 2025</span>
+            <span class="news-source">المصدر: النيل للأخبار</span>
+            <br>
+            <a href="http://nile1.com/ورشة-تدريبية-للصحفيين-حول-الذكاء-الاصطناعي-بتنظيم-وزارة-الاتصالات" target="_blank" class="news-link">اقرأ المزيد</a>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="https://www.instagram.com/tanweer_media?igsh=MXFmb2lxbDZzZWRoeg%3D%3D&utm_source=qr" target="_blank" title="Instagram">
+        <img src="insta.png" alt="Instagram">
+      </a>
+      <a href="https://x.com/tanweermedia?s=21" target="_blank" title="X">
+        <img src="x.png" alt="X">
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61578329603168&locale=ar_AR" target="_blank" title="Facebook">
+        <img src="facebook.png" alt="Facebook">
+      </a>
+    </div>
+    <p>© 2025 تنوير - جميع الحقوق محفوظة</p>
+  </footer>
+
+  <script>
+    const slides = [
+      'صور السلايد/slide1.png',
+      'صور السلايد/slide2.png',
+      'صور السلايد/slide3.png',
+      'صور السلايد/slide4.png'
+    ];
+    let currentSlide = 0;
+    let intervalId;
+
+    function showSlide(index) {
+      currentSlide = (index + slides.length) % slides.length;
+      document.getElementById('slider-img').src = slides[currentSlide];
+      const dots = document.querySelectorAll('.slider-dot');
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+      });
+    }
+
+    function goToSlide(index) {
+      showSlide(index);
+      resetInterval();
+    }
+
+    function createDots() {
+      const dotsContainer = document.getElementById('slider-dots');
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < slides.length; i++) {
+        const dot = document.createElement('span');
+        dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+        dot.onclick = () => goToSlide(i);
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    function resetInterval() {
+      clearInterval(intervalId);
+      intervalId = setInterval(nextSlide, 3000);
+    }
+
+    window.onload = function() {
+      createDots();
+      showSlide(0);
+      intervalId = setInterval(nextSlide, 3000);
+    };
+  </script>
+</body>
+</html>
