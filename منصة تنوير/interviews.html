@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>المقابلات | تنوير</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f9fc;
+      color: #111;
+      direction: rtl;
+    }
+    .navbar {
+      background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
+      padding: 10px 0;
+    }
+    .container {
+      width: 95%;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+    .logo img {
+      height: 50px;
+    }
+    .nav-links ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li a {
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s ease;
+      color: white;
+      text-decoration: none;
+    }
+    .nav-links li a:hover {
+      color: #ffd700;
+    }
+    .main-content {
+      padding: 40px 20px;
+      min-height: 70vh;
+    }
+    .interview {
+      text-align: right;
+      margin: 40px auto;
+      max-width: 900px;
+    }
+    .interview-header {
+      background: #fff;
+      padding: 28px 22px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 123, 255, 0.10);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .guest-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px;
+      display: block;
+      border: 4px solid #007BFF;
+    }
+    .interview-title {
+      color: #007BFF;
+      font-size: 24px;
+      margin-bottom: 15px;
+      margin-top: 0;
+    }
+    .interview-intro {
+      color: #333;
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 0;
+    }
+    .qa-section {
+      background: #fff;
+      padding: 28px 22px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 123, 255, 0.10);
+      margin-bottom: 30px;
+      text-align: right;
+    }
+    .question {
+      color: #007BFF;
+      font-size: 20px;
+      margin-bottom: 15px;
+      margin-top: 0;
+      font-weight: bold;
+    }
+    .answer {
+      color: #333;
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 0;
+      text-align: justify;
+    }
+    .blue-separator {
+      border: none;
+      border-top: 4px solid #007BFF;
+      margin: 36px 0;
+      border-radius: 2px;
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.8;
+      background: none;
+    }
+    .footer {
+      background-color: #f0f0f0;
+      text-align: center;
+      padding: 20px;
+      color: #333;
+      margin-top: 40px;
+    }
+    .social-icons {
+      margin-bottom: 10px;
+    }
+    .social-icons a {
+      margin: 0 8px;
+    }
+    .social-icons img {
+      width: 32px;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <div class="logo">
+        <img src="logo.png" alt="شعار تنوير">
+      </div>
+       <nav class="nav-links">
+        <ul>
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="articles.html">مقالات</a></li>
+          <li><a href="reports.html">تقارير</a></li>
+          <li><a href="interviews.html">مقابلات</a></li>
+          <li><a href="#">انفوجراف</a></li>
+          <li><a href="about.html">من نحن</a></li>
+          <li><a href="#">تسجيل دخول</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="main-content">
+    <section class="interview">
+      <div class="interview-header">
+        <img src="5.jpg" alt="محمد الورفلي" class="guest-image">
+        <h1 class="interview-title">لقاء مع محمد الورفلي</h1>
+        <p class="interview-intro">
+          ضمن سلسلة اللقاءات الملهمة التي نقدمها في منصة تنوير، نسلط الضوء على تجربة شاب ليبي مميز، بدأ مشواره الإعلامي من سن مبكرة، وسرعان ما صنع لنفسه اسم في الساحة الإعلامية المحلية.
+        </p>
+      </div>
+
+      <div class="qa-section">
+        <h2 class="question">كيف بدأت رحلتك في مجال الإعلام وأنت بعمر صغير؟</h2>
+        <p class="answer">
+          بدايتي في الإعلام كانت مزيج ما بين الهوية والرغبة. كنت دايمًا نحس إن المجال هذا يعكس شخصيتي وطموحاتي، وفي نفس الوقت كانت عندي رغبة حقيقية نخوض فيه. ولما توفرت الفرص، ما اكتفيتش باللي جاني، بل سعيت بنفسي باش ندخل المجال ونثبت وجودي فيه.
+        </p>
+      </div>
+
+      <div class="qa-section">
+        <h2 class="question">من خلال تجربتك، شن أكثر عمل أو لحظة إعلامية تعتز بها؟</h2>
+        <p class="answer">
+          من أكثر اللحظات اللي نعتز بيها في مشواري هي شغلي مع الإعلامي ومقدم البرامج عبد السلام عجينة، وكوني كنت جزء من فريق إعداد برنامج "عبسي ورجاله". كانت تجربة مميزة علمتني واجد وأثّرت فيا بشكل كبير، خاصة من حيث التعامل المهني داخل فريق عمل متكامل.
+        </p>
+      </div>
+
+      <div class="qa-section">
+        <h2 class="question">قولنا رأيك في الذكاء الاصطناعي وتأثيره على الإعلام؟ وهل جربت تستخدم أدوات منه؟</h2>
+        <p class="answer">
+          بصراحة، الذكاء الاصطناعي صار يلعب دور كبير جدًا في المجال الإعلامي، وساهم في تبسيط وتسهيل نقل الأخبار ومشاركتها، سواء بين الإعلاميين أو حتى الجمهور بمختلف شرائحه، خاصة عبر منصات التواصل الاجتماعي.
+          <br><br>
+          اليوم، أغلب الإعلاميين يستخدموا أدوات الذكاء الاصطناعي بشكل مباشر أو غير مباشر خلال شغلهم، لأنها تساعد في تسريع الإنجاز، تحسين جودة المحتوى، وتنظيم العمل بطريقة أكثر احترافية.
+        </p>
+      </div>
+
+      <div class="qa-section">
+        <h2 class="question">ماهي النصيحة اللي تقدمها لطلبة الإعلام الجدد بخصوص مواكبة التكنولوجيا والذكاء الاصطناعي؟</h2>
+        <p class="answer">
+          نصيحتي لطلبة الإعلام إنهم يواكبوا التكنولوجيا بشكل مستمر، لأنها من أساسيات النجاح في العصر الحالي، اللي نعيشوه تحت مظلة التطور الرقمي والأجهزة الإلكترونية.
+          <br><br>
+          الذكاء الاصطناعي والتقنيات الحديثة مش بس أدوات مساعدة، بل صارت جزء من يوميات الصحفي والإعلامي. كل ما طورت من نفسك في هالمجال، كل ما زادت فرصك إنك تتطور بسرعة، وتنجز أعمالك بكفاءة أعلى من الأجيال اللي سبقتك، خاصة وإن الوصول للمعلومة اليوم صار حرفيًا "بضغطة زر".
+        </p>
+      </div>
+
+      <div class="qa-section">
+        <h2 class="question">كيف قدرت تدمج بين حبك للإعلام والطيران؟ وشنو طموحك القادم؟</h2>
+        <p class="answer">
+          الإعلام بالنسبة لي كان هواية، أما الطيران فهو حلم الطفولة. صحيح إنهم يبدوا مجالين مختلفين، لكن في الواقع فيه بينهم تشابه كبير، أهمه التواصل المباشر مع الناس، والتعرف على مختلف فئات المجتمع، سواء من داخل ليبيا أو خارجها.
+          <br><br>
+          أنا من الأشخاص اللي يحبوا يخوضوا أكثر من تجربة، ونشوف إن تنوع الاهتمامات مش ضعف بل قوة، بشرط تعرف كيف تنظم وقتك وتوازن بين المهام. الإعلام والطيران ممكن يلتقوا في شخص واحد، خاصة لو قدرت ترتب أولوياتك وتدمج المهارات في خدمة كل مجال.
+          <br><br>
+          طموحي القادم هو نطوّر نفسي أكثر في مجال الضيافة الجوية، وفي نفس الوقت نحافظ على ارتباطي بالإعلام، لأنه دايمًا حيكون جزء من هويتي.
+        </p>
+      </div>
+
+      <div class="qa-section">
+        <h2 class="question">برأيك، هل طلاب الإعلام في ليبيا مهيئين لفهم وتطبيق أدوات الذكاء الاصطناعي؟ أو لازالت في فجوة بينهم وبين هالمجال؟</h2>
+        <p class="answer">
+          في رأيي، ما فيش فجوة حقيقية تمنع طلاب الإعلام في ليبيا من فهم أو استخدام أدوات الذكاء الاصطناعي، لأننا نعيش فعليًا في عصر التكنولوجيا، وكل شيء من حولنا أصبح رقمي وسريع.
+          <br><br>
+          المسألة تتعلق بالرغبة في التعلم. لو الطالب حاول يكتسب المهارات ويجرب يمارس استخدام الذكاء الاصطناعي، حتى خارج نطاق الإعلام، حيكتشف إن الأدوات هذي متاحة وسهلة وممكن تخدمه بشكل كبير، سواء في الدراسة أو إنجاز المهام.
+          <br><br>
+          التطور التكنولوجي المتسارع يفرض علينا كطلبة وإعلاميين إننا نكون مواكبين له، لأن الذكاء الاصطناعي ما عاد خيار، بل صار ضرورة.
+        </p>
+      </div>
+
+      <div class="qa-section">
+        <h2 class="question">كيف تتوقع شكل غرفة الأخبار في المستقبل مع دخول أدوات الذكاء الاصطناعي؟ وهل تعتقد أن العنصر البشري بيظل أساسي فيها؟</h2>
+        <p class="answer">
+          ما في معنى لغرفة التحرير أو الأخبار بدون وجود العنصر البشري، لأنه هو اللي يوجّه الزملاء ويوحد الجهود في مسار واضح ومستقيم، بعيد عن أي تعثرات ممكن تخلخل المحتوى الإعلامي.
+          <br><br>
+          دور رئيس قسم التحرير في غرفة الأخبار يبقى جوهري في التنظيم والتوجيه، بينما الذكاء الاصطناعي صار اليوم من المحاور الأساسية في جمع المعلومات والأخبار اليومية، اللي تهم الإنسان والمواطن.
+          <br><br>
+          الذكاء الاصطناعي يساعد في تحسين جودة المحتوى، ويعطي فرص أكبر لجذب الجمهور من خلال توفير محتوى إعلامي متجدد وملفت. لكن في النهاية، نجاح غرفة الأخبار يبقى رهين بوجود العنصر البشري القادر على اتخاذ القرارات الحكيمة.
+        </p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="https://www.instagram.com/tanweer_media?igsh=MXFmb2lxbDZzZWRoeg%3D%3D&utm_source=qr" target="_blank" title="Instagram">
+        <img src="insta.png" alt="Instagram">
+      </a>
+      <a href="https://x.com/tanweermedia?s=21" target="_blank" title="X">
+        <img src="x.png" alt="X">
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61578329603168&locale=ar_AR" target="_blank" title="Facebook">
+        <img src="facebook.png" alt="Facebook">
+      </a>
+    </div>
+    <p>© 2025 تنوير - جميع الحقوق محفوظة</p>
+  </footer>
+</body>
+</html> 
