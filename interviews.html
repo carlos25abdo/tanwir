@@ -118,20 +118,166 @@
       background: none;
     }
     .footer {
-      background-color: #f0f0f0;
-      text-align: center;
-      padding: 20px;
-      color: #333;
+      background-color: #000;
+      color: white;
       margin-top: 40px;
     }
+    
+    .footer-main {
+      padding: 40px 20px;
+      border-bottom: 1px solid #333;
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 40px;
+    }
+    
+    .footer-section {
+      flex: 1;
+    }
+    
+    .footer-section h3 {
+      color: #007BFF;
+      font-size: 18px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-section ul li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-section ul li a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-section ul li a:hover {
+      color: #007BFF;
+    }
+    
+    .footer-logo {
+      text-align: center;
+    }
+    
+    .footer-logo-img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 15px;
+    }
+    
+    .footer-logo h2 {
+      color: white;
+      font-size: 28px;
+      margin: 0 0 10px 0;
+      font-weight: bold;
+    }
+    
+    .footer-tagline {
+      color: #007BFF;
+      font-size: 16px;
+      margin: 0 0 15px 0;
+      font-weight: bold;
+    }
+    
+    .footer-description {
+      color: #ccc;
+      font-size: 14px;
+      margin: 0 0 8px 0;
+    }
+    
+    .footer-mission {
+      color: #ccc;
+      font-size: 14px;
+      margin: 0;
+      line-height: 1.5;
+    }
+    
     .social-icons {
-      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+      flex-wrap: wrap;
     }
+    
     .social-icons a {
-      margin: 0 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: white;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
     }
+    
+    .social-icons a:hover {
+      transform: scale(1.1);
+    }
+    
     .social-icons img {
-      width: 32px;
+      width: 20px;
+      height: 20px;
+    }
+    
+    .footer-copyright {
+      background-color: #000;
+      padding: 20px;
+      border-top: 1px solid #333;
+    }
+    
+    .copyright-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .copyright-content p {
+      color: #ccc;
+      font-size: 14px;
+      margin: 0;
+    }
+    
+    .scroll-to-top {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+    }
+    
+    .scroll-to-top:hover {
+      background-color: rgba(0, 123, 255, 0.1);
+    }
+    
+    @media (max-width: 768px) {
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+      }
+      
+      .copyright-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -229,20 +375,175 @@
         </p>
       </div>
     </section>
+
+    <hr class="blue-separator">
+
+    <section class="interview">
+      <div class="interview-header">
+        <img src="رجاء صالح.png" alt="رجاء صالح" class="guest-image">
+        <h1 class="interview-title">لقاء مع رجاء صالح</h1>
+        <p class="interview-intro">
+          الإعلامية الليبية رجاء صالح، صاحبة حضور لافت وتجربة مميزة في مجال الإعلام. في هذا الحوار، تحدثنا معها عن علاقتها بالإعلام والتكنولوجيا، ورؤيتها لمستقبل الصحافة في ظل التحولات الرقمية. كما شاركتنا تجربتها في إدارة قناة New Libya، وأفكارها حول دور الإعلام في نقل الواقع بروح مهنية ومختلفة.
+        </p>
+      </div>
+
+      <div class="qa-section">
+        <h2 class="question">في البداية، نحب نعرف، شنو كانت بدايتك مع الإعلام؟ وهل كنتِ دايمًا تحلمي تشتغلي في هالمجال؟</h2>
+        <p class="answer">
+          بدايتي في الاعلام كانت من عمر تقريبا 6 سنوات كانت البداية بالاعلانات في قناة الجماهيرية وبعدها قدمت وشاركت في برامج اطفال مع المرحوم خالد الرقيعي وغيرهم يعني عمري 10 سنوات كنت مذيعة اطفال ونغني في اغاني اطفال الشغف كان من الطفولة وشاركت في كل مسابقات مدرستي الابتدائية وكنت نفوز ديما
+        </p>
+      </div>
+
+      <div class="qa-section">
+        <h2 class="question">خلال رحلتك المهنية، واجهتي تحديات كثيرة أكيد، شنو أصعب موقف مريتِ به كمذيعة؟</h2>
+                <p class="answer">
+          حياتي كلها تحديات ونؤمن بالتحدي والمنافسة معظم المشاكل اللي واجهتني كانت مش عملية بالعكس كل مدراء القنوات اللي اشتغت فيهم دعموني وشجعوني ووقفوا معاي ولكن المشكلة كانت مجرد غيرة من بعض الزميلات لاني كنت بعمر صغير ونقدم في برامج كبيرة والباقي كل الامور كانت كويسة جدا ولكن سبحان الله الحسد والغيرة  وعدم التقبل كان من بعض الزملاء فقط
+        </p>
+      </div>
+
+      <div class="qa-section">
+        <h2 class="question">كيف قدرتِ تفرضي اسمك في وسط إعلامي مليان بالمنافسة والتقلبات؟</h2>
+                <p class="answer">
+          قدرت نتميز لاني نقدم في برامج اني نختارها ونعرف شن يمشي مع المجتمع الليبي والعائلة الليبية لاني نتفرج علي برامجي مع عائلتي ونقدر ونحترم العادات والتقاليد واللمة اللييبة اللي مفيهاش اسفاف او اي شي يخدش الذوق العام كل برامجي الحمد لله نجحت ولاقت قبول كبير من المشاهد
+        </p>
+      </div>
+
+      <div class="qa-section">
+        <h2 class="question">قناة New Libya انطلقت منذ 2022، واليوم بدت معروفة أكثر في الساحة.. كيف تقيمي التجربة بعد مرور أكثر من عامين؟</h2>
+                <p class="answer">
+          قناة ليبيا الجديدة هذا مشروعي وحلمي اني نأسس قناة ليبية عربية غير سياسية ومحايدة ولا تنحاز لاي طرف بالعكس تنحاز للمواطن وللعائلة تقريبا التأسيس والتجهيز والتحضير خذي مني اكثر من سنة حطيت فيها كل جهدي وتركيزي وتعبت جدا باش طلعت للنور وكانت حلم وتحقق وسعادتي بها لا توصف وخاصة انها محبوبة من الصغار والكبار سواء الليبين او العرب يعني واجهت تحديات وصعوبات وضغوطات منقدرش نعبر عليها وناس حاولت تحبط وتفشل المشروع ولكن حمد لله نجحت بفضل الله
+        </p>
+      </div>
+
+      <div class="qa-section">
+        <h2 class="question">شنو أبرز التحديات اللي واجهتكم في بناء هوية القناة والمحافظة على حيادها؟</h2>
+                <p class="answer">
+          التحديات اللي واجتهنا كانت كيف نقدرو نستمروا بنفس المستوي دون التوجه او الانحياز وكانت زي ما حكيت محاولات كثيرة تبي تحبطنا وتفشلنا ولكن الاصرار والثقة في نفسنا خلتنا نستمروا بنفس المبدا قناة ليييا الجديدة قناة كل الليبيين دون استثناء شرق غرب جنوب كلنا اهل وخوت
+        </p>
+      </div>
+
+      <div class="qa-section">
+        <h2 class="question">القناة فيها محتوى منوّع يلامس العائلة الليبية، كيف تختاري نوعية البرامج والمذيعين؟</h2>
+                <p class="answer">
+          نختارو في نوعية البرامج اللي تهدف للم الشمل البرامج اللي تبرز العادات التقاليد وتبرز الهوية الليبية والزي الليبي والحوش الليبي والاكل الليبي والكرم والجود والفزعة الليبية وطبعا ركزنا علي طلبات المشاهدين اللي كانت اهمها الاعمال الليبية القديمة الهادفة كلها رجعناها للمشاهد واضافة لببرامجنا واعمالنا اللي انتجتها القناة ومشت علي نفس الخطي
+        </p>
+      </div>
+
+      <div class="qa-section">
+        <h2 class="question">هل في خطط مستقبلية لتوسيع عمل القناة؟ أو فتح المجال للشباب وطلبة الإعلام يشاركوا أو يتدربوا ضمن فريق العمل؟</h2>
+                <p class="answer">
+          اكيد فيه خطط لتوسيع القناة وهي حاليا عندها مكاتب وفروع داخل وخارج ليبيا وكل مدة  نختارو في مجموعة خريجين او متدربين ياخدو عندنا فترة تدريب علي التقديم التلفزيوني وشغلنا منهم مجموعة
+        </p>
+      </div>
+
+      <div class="qa-section">
+        <h2 class="question">مؤخرًا بدينا نسمعو عن دخول الذكاء الاصطناعي للإعلام.. برأيك، هل هو تهديد ولا فرصة؟</h2>
+                <p class="answer">
+          الذكاء الإصطناعي هو افضل اختراع العصر في حالة انه استخدمناه بالطريقة الصحيحة راح يساعدنا في الشغل الاعلامي بشكل كبير ولكن او تم العمل بيه بشكل سئ وخاطي النتيجة راح تكون كارثية للأسف
+        </p>
+      </div>
+
+      <div class="qa-section">
+        <h2 class="question">كيف تشوفي تأثير هالتقنيات على شغل الصحفي أو المذيع في المستقبل؟</h2>
+                <p class="answer">
+          تأثير التقنيات علي الصحفي ليه ايجابيات وسلبيات
+          <br><br>
+          الإيجابي انها ممكن تساعدة في الشغل بشكل ادق واسرع وينجز اكبر عمل في وقت قصير وتسهل مهامة اكثر والسلبي ان الصحفي يعتمد عليها اعتماد كلي ويصبح غير معتمد علي نفسه في تقصي الحقايق والأخبار الدقيقة من مصدرها الرسمي
+        </p>
+      </div>
+
+      <div class="qa-section">
+        <h2 class="question">منصتنا "تنوير" تحاول تبسّط مفاهيم الذكاء الاصطناعي لطلبة الإعلام، شنو رأيك في هالفكرة؟ وهل ممكن تشوفيها مفيدة لمستقبلهم؟</h2>
+                <p class="answer">
+          الذكاء الصناعي اصبح يشاركنا يومياتنا في جميع مجالات الحياة ولكن يجب التعامل معاه بحذر ودا ننسي انه الذكاء الصناعي في النهاية من صنع البشر ولازال البشر هو اللي يتحكم فيه ويعطيه المعلومات واكيد يفيد المذيع والصحفي في المستقبل ويسهل عليه الشغل الصعب ويقلل من المدة الزمنية ايضا في انجاز اي عمل
+        </p>
+      </div>
+
+      <div class="qa-section">
+        <h2 class="question">لو تقدري توجهي رسالة لطلبة الإعلام في ليبيا، شنو تقولي لهم اليوم؟</h2>
+                <p class="answer">
+          وفي الاخير نقول لكل الاعلاميين ان الاعلام هو رسالة وضروري توصل الرسالة بكل وضوح ومصداقية وشفافية للمواطن وننصح اي اعلامي انه يكون صحفي حر لا يباع ولا يشتري
+        </p>
+      </div>
+
+      <div class="qa-section">
+        <h2 class="question">وكلمة أخيرة لمنصة "تنوير" ومحتواها اللي نحاولو نقدموه.</h2>
+                <p class="answer">
+          كلمتي لمنصة تنوير 
+          <br><br>
+          شكرا علي اختياركم ليا شخصيا لهذا اللقاء
+          <br><br>
+          وشكرا لمجهوداتكم ونتمني تكونو دايما صحافة حرة مستقلة تقدم الصدق للمتلقي ♥
+        </p>
+      </div>
+    </section>
   </main>
   <footer class="footer">
-    <div class="social-icons">
-      <a href="https://www.instagram.com/tanweer_media?igsh=MXFmb2lxbDZzZWRoeg%3D%3D&utm_source=qr" target="_blank" title="Instagram">
-        <img src="insta.png" alt="Instagram">
-      </a>
-      <a href="https://x.com/tanweermedia?s=21" target="_blank" title="X">
-        <img src="x.png" alt="X">
-      </a>
-      <a href="https://www.facebook.com/profile.php?id=61578329603168&locale=ar_AR" target="_blank" title="Facebook">
-        <img src="facebook.png" alt="Facebook">
-      </a>
+    <div class="footer-main">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>من نحن</h3>
+          <ul>
+            <li><a href="about.html">من نحن</a></li>
+            <li><a href="#">الأحكام والشروط</a></li>
+            <li><a href="#">سياسة الخصوصية</a></li>
+            <li><a href="#">تواصل معنا</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>خدماتنا</h3>
+          <ul>
+            <li><a href="#">استطلاعات الرأي</a></li>
+            <li><a href="#">برامج التدريب</a></li>
+            <li><a href="#">وظائف شاغرة</a></li>
+            <li><a href="#">أعلن معنا</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="logo.png" alt="شعار تنوير" class="footer-logo-img">
+            <h2>تنوير</h2>
+            <p class="footer-tagline">في كل الاتجاهات</p>
+            <p class="footer-description">منصة إعلامية ليبية شاملة</p>
+            <p class="footer-mission">تلتزم المهنية، وتمتاز بالعمق المعلوماتي</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="social-icons">
+        <a href="https://x.com/tanweermedia?s=21" target="_blank" title="X">
+          <img src="x.png" alt="X">
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61578329603168&locale=ar_AR" target="_blank" title="Facebook">
+          <img src="facebook.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/tanweer_media?igsh=MXFmb2lxbDZzZWRoeg%3D%3D&utm_source=qr" target="_blank" title="Instagram">
+          <img src="insta.png" alt="Instagram">
+        </a>
+      </div>
     </div>
-    <p>© 2025 تنوير - جميع الحقوق محفوظة</p>
-  </footer>
-</body>
+    
+    <div class="footer-copyright">
+      <div class="copyright-content">
+        <p>© 2025 جميع الحقوق محفوظة | موقع إخباري تابع إلى شركة تنوير ليبيا للدعاية والخدمات الإعلامية</p>
+        <button class="scroll-to-top" onclick="scrollToTop()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4L4 12H9V20H15V12H20L12 4Z" fill="#007BFF"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+      </footer>
+    
+    <script>
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    </script>
+  </body>
 </html> 
