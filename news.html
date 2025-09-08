@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title id="page-title">الأخبار | تنوير</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f9fc;
+      color: #111;
+      direction: rtl;
+    }
+    .navbar {
+      background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
+      padding: 10px 0;
+    }
+    .container {
+      width: 95%;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+    .logo img {
+      height: 50px;
+    }
+    .nav-links ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li a {
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s ease;
+      color: white;
+      text-decoration: none;
+    }
+    .nav-links li a:hover {
+      color: #FF8C00;
+    }
+    .nav-icon {
+      font-size: 18px;
+      margin-left: 8px;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+    .nav-links li a:hover .nav-icon {
+      transform: scale(1.2);
+    }
+    .main-content {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .news-article {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 123, 255, 0.15);
+      overflow: hidden;
+      border: 2px solid #f0f0f0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .news-article.loaded {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .news-header {
+      padding: 30px;
+      border-bottom: 1px solid #eee;
+    }
+    .news-title {
+      color: #007BFF;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+    .news-meta {
+      color: #666;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    .news-date {
+      color: #888;
+      margin-right: 15px;
+    }
+    .news-source {
+      color: #007BFF;
+      font-weight: bold;
+    }
+    .news-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+    .news-content {
+      padding: 30px;
+    }
+    .news-paragraph {
+      color: #333;
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 25px;
+      text-align: justify;
+    }
+    .back-link {
+      display: inline-block;
+      background: #007BFF;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-bottom: 30px;
+      transition: background 0.3s ease;
+    }
+    .back-link:hover {
+      background: #0056b3;
+      text-decoration: none;
+      color: white;
+    }
+    .loading {
+      text-align: center;
+      padding: 60px 20px;
+      color: #007BFF;
+      font-size: 18px;
+    }
+    .footer {
+      background-color: #000;
+      color: white;
+      margin-top: 40px;
+    }
+    .footer-main {
+      padding: 40px 20px;
+      border-bottom: 1px solid #333;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 40px;
+    }
+    .footer-section {
+      flex: 1;
+    }
+    .footer-section h3 {
+      color: #FF8C00;
+      font-size: 18px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-section ul li {
+      margin-bottom: 12px;
+    }
+    .footer-section ul li a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+    .footer-section ul li a:hover {
+      color: #FF8C00;
+    }
+    .footer-logo {
+      text-align: center;
+    }
+    .footer-logo-img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 15px;
+    }
+    .footer-logo h2 {
+      color: white;
+      font-size: 28px;
+      margin: 0 0 10px 0;
+      font-weight: bold;
+    }
+    .footer-tagline {
+      color: #FF8C00;
+      font-size: 16px;
+      margin: 0 0 15px 0;
+      font-weight: bold;
+    }
+    .footer-description {
+      color: #ccc;
+      font-size: 14px;
+      margin: 0 0 8px 0;
+    }
+    .footer-mission {
+      color: #ccc;
+      font-size: 14px;
+      margin: 0;
+      line-height: 1.5;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: white;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+    .social-icons a:hover {
+      transform: scale(1.1);
+    }
+    .social-icons img {
+      width: 20px;
+      height: 20px;
+    }
+    .footer-copyright {
+      background-color: #000;
+      padding: 20px;
+      border-top: 1px solid #333;
+    }
+    .copyright-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .copyright-content p {
+      color: #ccc;
+      font-size: 14px;
+      margin: 0;
+    }
+    .scroll-to-top {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+    }
+    .scroll-to-top:hover {
+      background-color: rgba(0, 123, 255, 0.1);
+    }
+    @media (max-width: 768px) {
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+      }
+      .copyright-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+      .news-title {
+        font-size: 24px;
+      }
+      .news-paragraph {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <div class="logo">
+        <img src="logo.png" alt="شعار تنوير">
+      </div>
+      <nav class="nav-links">
+        <ul>
+          <li><a href="index.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="white"/><polyline points="9,22 9,12 15,12 15,22" fill="white"/></svg></span> الرئيسية</a></li>
+          <li><a href="articles.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8Z" fill="white"/><polyline points="14,2 14,8 20,8" fill="white"/><line x1="16" y1="13" x2="8" y2="13" stroke="white" stroke-width="2"/><line x1="16" y1="17" x2="8" y2="17" stroke="white" stroke-width="2"/><line x1="10" y1="9" x2="8" y2="9" stroke="white" stroke-width="2"/></svg></span> مقالات</a></li>
+          <li><a href="reports.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" fill="none" stroke="white" stroke-width="2"/><line x1="7" y1="9" x2="12" y2="9" stroke="white" stroke-width="2"/><line x1="7" y1="13" x2="17" y2="13" stroke="white" stroke-width="2"/><line x1="7" y1="17" x2="15" y2="17" stroke="white" stroke-width="2"/><line x1="19" y1="7" x2="19" y2="11" stroke="white" stroke-width="2"/><line x1="17" y1="9" x2="21" y2="9" stroke="white" stroke-width="2"/></svg></span> تقارير</a></li>
+          <li><a href="interviews.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" fill="white"/><path d="M19 10v1a7 7 0 0 1-14 0v-1" stroke="white" stroke-width="2"/><line x1="12" y1="19" x2="12" y2="23" stroke="white" stroke-width="2"/><path d="M8 23h8" stroke="white" stroke-width="2"/></svg></span> مقابلات</a></li>
+          <li><a href="#"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="7" y1="17" x2="17" y2="7" stroke="white" stroke-width="2"/><polyline points="7,7 7,17 17,17" stroke="white" stroke-width="2"/><line x1="12" y1="1" x2="12" y2="5" stroke="white" stroke-width="2"/><line x1="1" y1="12" x2="5" y2="12" stroke="white" stroke-width="2"/><line x1="19" y1="12" x2="23" y2="12" stroke="white" stroke-width="2"/><line x1="12" y1="19" x2="12" y2="23" stroke="white" stroke-width="2"/></svg></span> انفوجراف</a></li>
+          <li><a href="about.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="white" stroke-width="2"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="white" stroke-width="2"/></svg></span> من نحن</a></li>
+          <li><a href="#"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="white" stroke-width="2"/><circle cx="7" cy="16" r="1" fill="white"/><circle cx="11" cy="16" r="1" fill="white"/><circle cx="15" cy="16" r="1" fill="white"/><path d="m7 11-3-3v-3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3l-3 3" stroke="white" stroke-width="2"/></svg></span> تسجيل دخول</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <a href="index.html" class="back-link">← العودة للصفحة الرئيسية</a>
+    
+    <div id="loading" class="loading">
+      جاري تحميل الخبر...
+    </div>
+    
+    <article id="news-article" class="news-article">
+      <div class="news-header">
+        <h1 id="news-title" class="news-title"></h1>
+        <div class="news-meta">
+          <span id="news-date" class="news-date"></span>
+          <span id="news-source" class="news-source"></span>
+        </div>
+      </div>
+      
+      <img id="news-image" src="" alt="" class="news-image">
+      
+      <div id="news-content" class="news-content">
+        <!-- المحتوى سيتم إدراجه هنا ديناميكياً -->
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>الصفحات</h3>
+          <ul>
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="articles.html">المقالات</a></li>
+            <li><a href="reports.html">التقارير</a></li>
+            <li><a href="interviews.html">المقابلات</a></li>
+            <li><a href="about.html">من نحن</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>الأخبار</h3>
+          <ul>
+            <li><a href="news.html?id=1">فضيحة قائمة كتب صيفية</a></li>
+            <li><a href="news.html?id=2">الذكاء الاصطناعي والصحافة</a></li>
+            <li><a href="news.html?id=3">Google والصحافة الرقمية</a></li>
+            <li><a href="news.html?id=4">ورشة تدريبية للصحفيين</a></li>
+            <li><a href="news.html?id=5">البرلمان العربي والذكاء الاصطناعي</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="logo.png" alt="شعار تنوير" class="footer-logo-img">
+            <h2>تنوير</h2>
+            <p class="footer-tagline">في كل الاتجاهات</p>
+            <p class="footer-description">منصة إعلامية ليبية شاملة</p>
+            <p class="footer-mission">تلتزم المهنية، وتمتاز بالعمق المعلوماتي</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="social-icons">
+        <a href="https://x.com/tanweermedia?s=21" target="_blank" title="X">
+          <img src="x.png" alt="X">
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61578329603168&locale=ar_AR" target="_blank" title="Facebook">
+          <img src="facebook.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/tanweer_media?igsh=MXFmb2lxbDZzZWRoeg%3D%3D&utm_source=qr" target="_blank" title="Instagram">
+          <img src="insta.png" alt="Instagram">
+        </a>
+      </div>
+    </div>
+    
+    <div class="footer-copyright">
+      <div class="copyright-content">
+        <p>© 2025 جميع الحقوق محفوظة | موقع إخباري تابع إلى شركة تنوير ليبيا للدعاية والخدمات الإعلامية</p>
+        <button class="scroll-to-top" onclick="scrollToTop()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4L4 12H9V20H15V12H20L12 4Z" fill="#007BFF"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // قاعدة بيانات الأخبار
+    const newsData = {
+      1: {
+        title: "فضيحة قائمة كتب صيفية: هل يمكن الوثوق بالذكاء الاصطناعي في إنتاج المحتوى الإعلامي؟",
+        date: "يوليو 2025",
+        source: "AP News",
+        image: "1.jpg",
+        content: [
+          "في صيف 2025، تعرضت صحيفتان أمريكيتان شهيرتان لفضيحة بعد نشر قائمة كتب صيفية ضمن ملحق \"Heat Index\"، تضمنت عناوين كتب وأقوالًا منسوبة لخبراء غير موجودين، وذلك بعد أن تم توليد المحتوى بالكامل بواسطة أدوات الذكاء الاصطناعي دون تحقق بشري أو مراجعة دقيقة.",
+          "نشرت كل من Chicago Sun‑Times وPhiladelphia Inquirer قائمة الكتب الصادرة صيفًا، والتي كانت مفترضًا أن تقدم توصيات ثقافية للقراء. لكن سرعان ما اكتُشف أن العديد من الكتب المذكورة في القائمة ليست حقيقية، وأن بعض الاقتباسات المنسوبة لخبراء وشخصيات بارزة مزيفة بالكامل.",
+          "تم استخدام برامج ذكاء اصطناعي لتوليد هذه القائمة، إلا أن غياب المراجعة البشرية سمح بنشر محتوى مضلل وغير دقيق. بعد انكشاف الأمر، أزيلت القائمة من كلا الصحيفتين، وتم فصل الكاتب الذي كان مسؤولًا عن إعداد هذه التوصيات.",
+          "أثارت هذه الحادثة موجة من الانتقادات في الأوساط الإعلامية حول مدى الاعتماد المفرط على تقنيات الذكاء الاصطناعي دون رقابة بشرية. دعا خبراء الإعلام إلى ضرورة وضع معايير صارمة تضمن دمج التدقيق البشري مع استخدام الذكاء الاصطناعي، للحفاظ على مصداقية وجودة المحتوى الإعلامي.",
+          "تعكس هذه الفضيحة التحديات التي تواجه الإعلام في عصر الذكاء الاصطناعي، وتبرز الحاجة الملحة إلى التوازن بين الاستفادة من التكنولوجيا وضمان جودة وموثوقية الأخبار والمحتوى المقدم للجمهور."
+        ]
+      },
+      2: {
+        title: "الذكاء الاصطناعي يُغيّر قواعد الصحافة: تجديد في المهام صحافيًا مع تحديات مهنية",
+        date: "22 مايو 2025",
+        source: "الجزيرة نت",
+        image: "2.jpg",
+        content: [
+          "في 22 مايو 2025، أكّد باحثون وصحفيون أن الذكاء الاصطناعي لم يستبدل الإنسان بعد، لكنه بدأ يُحدث تغيرات جوهرية في بيئة العمل الصحفي، خاصة في المهام التحريرية والبحثية، ويثير تساؤلات حول مدى جاهزية المؤسسات الإعلامية لمواجهة هذه التحولات.",
+          "قال الكاتب عثمان كباشي من الجزيرة إن الذكاء الاصطناعي \"طرح العديد من الأسئلة حول كيفية التعاطي معه، لتحقيق الفائدة القصوى من إمكانياته\" دون فقدان الجودة المهنية.",
+          "أشار إلى أن أهم وظائف الذكاء الاصطناعي اليوم تشمل البحث، الترجمة، التلخيص، اقتراح الأفكار، كتابة العناوين، والتحليل البسيط للنصوص والمعلومات.",
+          "لكن حسب تقرير لمركز تاو للصحافة الرقمية بالتعاون مع جامعة أكسفورد، فإن دور الذكاء الاصطناعي في غرف الأخبار لا يزال مقتصرًا على المهام الروتينية، وليس التحريرية المعقدة.",
+          "كما أظهرت بيانات أن الاستخدام الفعلي للتقنيات الذكائية يختلف حسب مستوى التدريب والبنية التحتية داخل المؤسسات الإعلامية، ما يعقب الفجوة المعرفية بين المهندسين والمحررين.",
+          "بينما يواصل الذكاء الاصطناعي الدخول إلى غرف الأخبار، يبقى التحدي الحقيقي في مقاومة الاعتماد المفرط عليه دون تأهيل رقمي أو رقابة بشرية. صحيح أن هذه الأدوات تُسرّع وتُيسّر العمل الصحفي، لكنها تحتاج إطارًا تنظيميًا وتدريبًا مستمرًا لضمان أنها تعزز المهنة بدل أن تُضعفها، وتُوظف من أجل الصحافة وليس ضد قيمها."
+        ]
+      },
+      3: {
+        title: "هل Google تقتل الصحافة الرقمية؟ ملخصات الذكاء الاصطناعي تُحدث صدمة في عدد زيارات المواقع الإخبارية",
+        date: "24 يوليو 2025",
+        source: "The Guardian",
+        image: "3.jpg",
+        content: [
+          "تشهد المواقع الإخبارية عبر الإنترنت تراجعًا كبيرًا في أعداد الزوار، وذلك بعد إطلاق Google خاصية \"الملخصات الذكية\" المدعومة بالذكاء الاصطناعي في نتائج البحث. تشير الدراسات الحديثة إلى أن هذه الخاصية تسببت في انخفاض يصل إلى 80% في عدد النقرات على الروابط الأصلية للمواقع الإخبارية.",
+          "خاصية \"AI Overviews\" التي تقدم ملخصات ذكية تظهر في أعلى نتائج البحث، تُمكّن المستخدم من الحصول على المعلومات دون الحاجة لزيارة الموقع الأصلي، مما أدى إلى تراجع ملحوظ في حركة المرور على المواقع الإخبارية.",
+          "دراسات تحليلية من شركات مثل Authoritas وChartbeat أوضحت أن هذا التأثير يشمل كل من مستخدمي أجهزة الكمبيوتر والهواتف المحمولة، حيث شهدت المواقع خسائر كبيرة في نسب الزيارات.",
+          "ناشرو الأخبار والصحفيون أعربوا عن قلقهم من أن هذه الخاصية قد تؤدي إلى تآكل مصادر الدخل لديهم، وتهدد استمرار الصحافة الرقمية كمصدر مستقل وموثوق.",
+          "من جهة أخرى، دافعت Google عن التقنية الجديدة، مشيرة إلى أنها لا تزال ترسل مليارات الزيارات إلى المواقع الإخبارية شهريًا، وأن التغيرات في نسب الزيارات قد تكون مؤقتة أو نتيجة عوامل تقنية أخرى مثل تغييرات في خوارزميات البحث أو المواسم المختلفة.",
+          "أشارت الدراسة إلى أن الاعتماد على ملخصات الذكاء الاصطناعي أدى إلى زيادة في عمليات البحث دون نقرة (zero-click searches)، حيث يحصل المستخدم على المعلومة مباشرة من نتائج البحث دون الحاجة لزيارة أي موقع.",
+          "كما لوحظ تزايد ظهور روابط الفيديو على YouTube في نتائج البحث، مما زاد من نسب مشاهدة الفيديوهات على حساب قراءة المقالات الإخبارية.",
+          "ناشد الناشرون الجهات التنظيمية مثل المفوضية الأوروبية وهيئات المنافسة في بريطانيا للنظر في تأثير هذه التكنولوجيا على استقلالية الإعلام الرقمي وحماية مصادر الدخل للناشرين.",
+          "يمثل هذا التطور في تقنيات البحث والذكاء الاصطناعي نقطة تحول مهمة في العلاقة بين التكنولوجيا ووسائل الإعلام، مما يفرض تحديات جديدة على الصحافة الرقمية فيما يتعلق بالحفاظ على جمهورها ومصادر تمويلها في ظل تغير أنماط استهلاك الأخبار."
+        ]
+      },
+      4: {
+        title: "وزارة الاتصالات تنظم ورشة تدريبية للصحفيين حول الذكاء الاصطناعي",
+        date: "أغسطس 2025",
+        source: "النيل للأخبار",
+        image: "4.jpg",
+        content: [
+          "أعلنت نقابة الصحفيين المصريين عن تنظيم ورشة تدريبية تحت عنوان \"الذكاء الاصطناعي التوليدي للصحفيين\" (Generative AI for Journalists)، بالتعاون مع وزارة الاتصالات وهيئة تنمية صناعة تكنولوجيا المعلومات (ITIDA)، وذلك في إطار مبادرة \"مصر الرقمية\" التي تهدف إلى دعم التحول الرقمي وتطوير الكفاءات الإعلامية.",
+          "تهدف الورشة إلى تدريب الصحفيين على استخدام تقنيات الذكاء الاصطناعي في إعداد المحتوى، تحليل البيانات، وتحسين الإنتاج الإعلامي. وتأتي هذه الخطوة في ظل تزايد الاعتماد على أدوات الذكاء الاصطناعي في مختلف مجالات العمل الصحفي والإعلامي.",
+          "ومن المقرر أن تُعقد الورشة خلال شهر أغسطس 2025 داخل مركز الإبداع التكنولوجي، وتُتاح المشاركة لعدد محدود من الصحفيين وفق أسبقية التسجيل. يُفتح باب التقديم عبر رابط إلكتروني خصصته النقابة لهذا الغرض.",
+          "وتُعد هذه الورشة جزءًا من جهود متواصلة لدمج التكنولوجيا في المجال الإعلامي، وتمكين الصحفيين من مواكبة التطورات الرقمية والتقنيات الحديثة في غرف الأخبار."
+        ]
+      },
+      5: {
+        title: "البرلمان العربي يدعو لتوطين صناعة الذكاء الاصطناعي في العالم العربي",
+        date: "3 فبراير 2025",
+        source: "وكالة الأنباء الليبية (وال)",
+        image: "6.jpg",
+        content: [
+          "في خطوة تهدف لتعزيز دور الدول العربية في سباق الذكاء الاصطناعي العالمي، دعا البرلمان العربي إلى توطين صناعة الذكاء الاصطناعي ووضع الخطط اللازمة، مع توفير الموارد المالية والبشرية لتحقيق هذا الهدف.",
+          "وخلال افتتاح أعمال دائرة الحوار العربية حول \"الذكاء الاصطناعي في العالم العربي: تطبيقات مبتكرة وتحديات أخلاقية\"، شدد محمد أحمد اليماحي، رئيس البرلمان العربي، على أهمية بناء منظومة عربية مبتكرة ومستدامة في هذا المجال، تتكامل فيها جهود الحكومات، المؤسسات الأكاديمية، والقطاع الخاص، مع وضع إطار قانوني يوازن بين الإبداع والمسؤولية الأخلاقية.",
+          "ويشير اليماحي إلى أن البرلمان العربي أصدر قبل ثلاثة أعوام أول قانون عربي استرشادي للذكاء الاصطناعي، بهدف ضمان الاستخدام الآمن للتكنولوجيا بما يتوافق مع القيم والثقافة العربية. وأضاف أن البرلمان مستمر في دعم التعاون العربي المشترك ليضع المنطقة في مصاف الدول الرائدة في الذكاء الاصطناعي.",
+          "<strong>تحليل منصة تنوير:</strong> يظهر هذا التحرك أن العالم العربي بدأ يأخذ دورًا فاعلًا في تكنولوجيا المستقبل، مع التركيز على الجمع بين الابتكار والمسؤولية الاجتماعية والأخلاقية. هذه الخطوة تمثل فرصة لتعزيز التعليم والبحث العلمي في مجال الذكاء الاصطناعي داخل المنطقة."
+        ]
+      },
+      6: {
+        title: "ميثا تخطط لتطوير ذكاء اصطناعي فائق يتجاوز قدرات العقل البشري",
+        date: "15 يوليو 2025",
+        source: "وكالة الأنباء الليبية (وال)",
+        image: "7.jpg",
+        content: [
+          "أعلنت شركة \"ميثا بلاتفورمز\" عن خطط طموحة لاستثمار مئات مليارات الدولارات في البنية التحتية الحاسوبية، بهدف تطوير ذكاء اصطناعي فائق يتجاوز قدرات العقل البشري.",
+          "وأوضح الرئيس التنفيذي مارك زوكربيرج على منصة \"ثريدز\" أن الشركة ستبني فرقًا عالية الكفاءة، وستستثمر الموارد المالية اللازمة لدعم هذا المشروع الطموح، بما يشمل إنشاء مراكز بيانات ضخمة لدعم الذكاء الاصطناعي.",
+          "ويشير مصطلح \"الذكاء الاصطناعي الفائق\" إلى أنظمة افتراضية تمتلك قدرات تفوق البشر في التعلم والتحليل واتخاذ القرارات. ومن بين المراكز المخطط تشغيلها، هناك \"بروميثيوس\" المقرر بدء تشغيله عام 2026، و\"هيبريون\" الذي قد يستهلك ما يصل إلى 5 جيجاوات من الطاقة، أي ما يكفي لتزويد أكثر من أربعة ملايين منزل أمريكي بالكهرباء.",
+          "<strong>تحليل منصة تنوير:</strong> يشير هذا الإعلان إلى أن الشركات الكبرى في العالم تتسابق لتطوير الذكاء الاصطناعي الفائق، ما يفتح الباب أمام فرص كبيرة لتطبيقات جديدة في الإعلام والصناعة والخدمات. لكنه يطرح أيضًا تحديات ضخمة تتعلق بالطاقة، والأخلاقيات، والسيطرة على التكنولوجيا، ما يجعل موضوع الحوكمة واستخدام الذكاء الاصطناعي مسؤولية مشتركة بين المؤسسات والحكومات والمجتمعات."
+        ]
+      },
+      7: {
+        title: "أسهم علي بابا ترتفع بعد كشف نموذج ذكاء اصطناعي ينافس ديب سيك",
+        date: "7 مارس 2025",
+        source: "وكالة الأنباء الليبية (وال)",
+        image: "8.jpg",
+        content: [
+          "ارتفعت أسهم مجموعة \"علي بابا القابضة\" بشكل ملحوظ بعد كشفها عن نموذج ذكاء اصطناعي جديد، QwQ-32B، يضاهي أداء نموذج \"ديب سيك\" باستخدام جزء صغير جدًا من البيانات المطلوبة.",
+          "ويُعد هذا النموذج تطورًا كبيرًا عن النسخة السابقة، إذ استخدم نحو 5% فقط من المعلمات المستخدمة في نموذج \"آر ون\" (R1) لشركة ديب سيك، ما يعكس كفاءة عالية في تصميم الذكاء الاصطناعي.",
+          "ساهمت هذه الخطوة في صعود أسهم \"علي بابا\" بحوالي 8.4% في هونغ كونغ، مع ارتفاع القيمة السوقية للشركة بنحو 153 مليار دولار، ويعكس نجاح الشركة في التغلب على التحديات التنظيمية السابقة في الصين.",
+          "ويأتي هذا الإعلان في سياق دعم الحكومة الصينية للتوسع في استخدام نماذج الذكاء الاصطناعي وتطوير الجيل الجديد من الأجهزة الذكية، ما يعزز ريادة الصين في هذا القطاع.",
+          "<strong>تحليل منصة تنوير:</strong> يُظهر هذا التطور أن المنافسة في مجال الذكاء الاصطناعي أصبحت عالمية وسريعة التغير، مع تقليل الموارد المطلوبة لتحقيق أداء عالٍ. كما يعكس قدرة الشركات على الابتكار ضمن بيئات تنظيمية معقدة، ويؤكد أن الاستثمار في الذكاء الاصطناعي لم يعد مجرد ترف تقني، بل عنصر حاسم في الاقتصاد والصناعة والتكنولوجيا الحديثة."
+        ]
+      }
+    };
+
+    // دالة تحميل الخبر
+    function loadNews(newsId) {
+      const news = newsData[newsId];
+      if (!news) {
+        document.getElementById('loading').innerHTML = 'الخبر غير موجود';
+        return;
+      }
+
+      // إخفاء شاشة التحميل وإظهار المقال
+      document.getElementById('loading').style.display = 'none';
+      
+      // تحديث المحتوى
+      document.getElementById('page-title').textContent = news.title + ' | تنوير';
+      document.getElementById('news-title').textContent = news.title;
+      document.getElementById('news-date').textContent = 'تاريخ النشر: ' + news.date;
+      document.getElementById('news-source').textContent = 'المصدر: ' + news.source;
+      document.getElementById('news-image').src = news.image;
+      document.getElementById('news-image').alt = news.title;
+      
+      // تحديث المحتوى
+      const contentDiv = document.getElementById('news-content');
+      contentDiv.innerHTML = '';
+      news.content.forEach(paragraph => {
+        const p = document.createElement('p');
+        p.className = 'news-paragraph';
+        p.innerHTML = paragraph;
+        contentDiv.appendChild(p);
+      });
+      
+      // إظهار المقال مع تأثير
+      setTimeout(() => {
+        document.getElementById('news-article').classList.add('loaded');
+      }, 100);
+    }
+
+    // دالة العودة للأعلى
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // تحميل الخبر عند فتح الصفحة
+    window.addEventListener('load', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const newsId = urlParams.get('id');
+      
+      if (newsId) {
+        loadNews(parseInt(newsId));
+      } else {
+        document.getElementById('loading').innerHTML = 'معرف الخبر غير صحيح';
+      }
+    });
+  </script>
+</body>
+</html>

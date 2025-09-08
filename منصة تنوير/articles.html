@@ -47,6 +47,15 @@
     .nav-links li a:hover {
       color: #ffd700;
     }
+    .nav-icon {
+      font-size: 18px;
+      margin-left: 8px;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+    .nav-links li a:hover .nav-icon {
+      transform: scale(1.2);
+    }
     .main-content {
       padding: 40px 20px;
       min-height: 70vh;
@@ -127,13 +136,13 @@
       </div>
        <nav class="nav-links">
         <ul>
-          <li><a href="index.html">الرئيسية</a></li>
-          <li><a href="articles.html">مقالات</a></li>
-          <li><a href="reports.html">تقارير</a></li>
-          <li><a href="interviews.html">مقابلات</a></li>
-          <li><a href="#">انفوجراف</a></li>
-          <li><a href="about.html">من نحن</a></li>
-          <li><a href="#">تسجيل دخول</a></li>
+          <li><a href="index.html"><span class="nav-icon">🏠</span> الرئيسية</a></li>
+          <li><a href="articles.html"><span class="nav-icon">📄</span> مقالات</a></li>
+          <li><a href="reports.html"><span class="nav-icon">📊</span> تقارير</a></li>
+          <li><a href="interviews.html"><span class="nav-icon">🎙️</span> مقابلات</a></li>
+          <li><a href="#"><span class="nav-icon">📈</span> انفوجراف</a></li>
+          <li><a href="about.html"><span class="nav-icon">ℹ️</span> من نحن</a></li>
+          <li><a href="#"><span class="nav-icon">🔑</span> تسجيل دخول</a></li>
         </ul>
       </nav>
     </div>
