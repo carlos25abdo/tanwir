@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>هل سيحل الذكاء الاصطناعي محل الصحفي؟ | تنوير</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f9fc;
+      background-image: url('h.jpg');
+      background-image: image-set(url('h.jpg') type('image/jpeg'), url('h.png') type('image/png'));
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #111;
+      direction: rtl;
+    }
+    .navbar {
+      background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
+      padding: 10px 0;
+    }
+    .container {
+      width: 95%;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+    .logo img { height: 50px; }
+    .nav-links ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+    .nav-links li a { font-weight: bold; font-size: 16px; transition: color 0.3s ease; color: white; text-decoration: none; }
+    .nav-links li a:hover { color: #FF8C00; }
+    .nav-icon { font-size: 18px; margin-left: 8px; display: inline-block; transition: transform 0.3s ease; }
+    .nav-links li a:hover .nav-icon { transform: scale(1.2); }
+
+    .main-content { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+    .article-page { background: #fff; border-radius: 16px; box-shadow: 0 4px 20px rgba(0, 123, 255, 0.15); overflow: hidden; border: 2px solid #f0f0f0; }
+    .article-header { padding: 30px; border-bottom: 1px solid #eee; }
+    .article-title { color: #007BFF; font-size: 28px; font-weight: bold; margin-bottom: 15px; line-height: 1.4; }
+    .article-meta { color: #666; font-size: 15px; margin-bottom: 20px; }
+    .article-image { width: 100%; height: 400px; object-fit: cover; display: block; }
+    .article-content { padding: 30px; }
+    .article-content p { color: #333; font-size: 18px; line-height: 1.9; margin-bottom: 22px; text-align: justify; }
+    .article-content ul { color: #333; font-size: 18px; line-height: 1.9; margin-bottom: 22px; padding-right: 22px; }
+    .back-link { display: inline-block; background: #007BFF; color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; margin-bottom: 18px; }
+    .back-link:hover { background: #0056b3; color: #fff; text-decoration: none; }
+
+    .footer { background-color: #000; color: white; margin-top: 40px; }
+    .footer-main { padding: 40px 20px; border-bottom: 1px solid #333; }
+    .footer-content { display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; gap: 40px; }
+    .footer-section { flex: 1; }
+    .footer-section h3 { color: #FF8C00; font-size: 18px; margin-bottom: 20px; font-weight: bold; }
+    .footer-section ul { list-style: none; padding: 0; margin: 0; }
+    .footer-section ul li { margin-bottom: 12px; }
+    .footer-section ul li a { color: #ccc; text-decoration: none; font-size: 14px; transition: color 0.3s ease; }
+    .footer-section ul li a:hover { color: #FF8C00; }
+    .footer-logo { text-align: center; }
+    .footer-logo-img { width: 200px; height: 60px; margin-bottom: 15px; }
+    .footer-logo h2 { color: white; font-size: 28px; margin: 0 0 10px 0; font-weight: bold; }
+    .footer-tagline { color: #FF8C00; font-size: 16px; margin: 0 0 15px 0; font-weight: bold; }
+    .footer-description { color: #ccc; font-size: 14px; margin: 0 0 8px 0; }
+    .footer-mission { color: #ccc; font-size: 14px; margin: 0; line-height: 1.5; }
+    .social-icons { display: flex; justify-content: center; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
+    .social-icons a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background-color: white; border-radius: 50%; transition: transform 0.3s ease; }
+    .social-icons a:hover { transform: scale(1.1); }
+    .social-icons img { width: 20px; height: 20px; }
+    .footer-copyright { background-color: #000; padding: 20px; border-top: 1px solid #333; }
+    .copyright-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+    .copyright-content p { color: #ccc; font-size: 14px; margin: 0; }
+    .scroll-to-top { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 50%; transition: background-color 0.3s ease; }
+    .scroll-to-top:hover { background-color: rgba(0, 123, 255, 0.1); }
+    @media (max-width: 768px) {
+      .article-title { font-size: 24px; }
+      .article-image { height: 280px; }
+      .footer-content { flex-direction: column; text-align: center; gap: 30px; }
+      .copyright-content { flex-direction: column; gap: 15px; text-align: center; }
+    }
+  </style>
+  <link rel="preload" as="image" href="21.jpg">
+  <link rel="preload" as="image" href="logo.png">
+  <link rel="preload" as="image" href="x.png">
+  <link rel="preload" as="image" href="facebook.png">
+  <link rel="preload" as="image" href="insta.png">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <div class="logo">
+        <img src="logo.png" alt="شعار تنوير">
+      </div>
+       <nav class="nav-links">
+        <ul>
+          <li><a href="index.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="white"/><polyline points="9,22 9,12 15,12 15,22" fill="white"/></svg></span> الرئيسية</a></li>
+          <li><a href="articles.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8Z" fill="white"/><polyline points="14,2 14,8 20,8" fill="white"/><line x1="16" y1="13" x2="8" y2="13" stroke="white" stroke-width="2"/><line x1="16" y1="17" x2="8" y2="17" stroke="white" stroke-width="2"/><line x1="10" y1="9" x2="8" y2="9" stroke="white" stroke-width="2"/></svg></span> مقالات</a></li>
+          <li><a href="reports.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" fill="none" stroke="white" stroke-width="2"/><line x1="7" y1="9" x2="12" y2="9" stroke="white" stroke-width="2"/><line x1="7" y1="13" x2="17" y2="13" stroke="white" stroke-width="2"/><line x1="7" y1="17" x2="15" y2="17" stroke="white" stroke-width="2"/><line x1="19" y1="7" x2="19" y2="11" stroke="white" stroke-width="2"/><line x1="17" y1="9" x2="21" y2="9" stroke="white" stroke-width="2"/></svg></span> تقارير</a></li>
+          <li><a href="interviews.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" fill="white"/><path d="M19 10v1a7 7 0 0 1-14 0v-1" stroke="white" stroke-width="2"/><line x1="12" y1="19" x2="12" y2="23" stroke="white" stroke-width="2"/><path d="M8 23h8" stroke="white" stroke-width="2"/></svg></span> لقاءات</a></li>
+          <li><a href="#"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="7" y1="17" x2="17" y2="7" stroke="white" stroke-width="2"/><polyline points="7,7 7,17 17,17" stroke="white" stroke-width="2"/><line x1="12" y1="1" x2="12" y2="5" stroke="white" stroke-width="2"/><line x1="1" y1="12" x2="5" y2="12" stroke="white" stroke-width="2"/><line x1="19" y1="12" x2="23" y2="12" stroke="white" stroke-width="2"/><line x1="12" y1="19" x2="12" y2="23" stroke="white" stroke-width="2"/></svg></span> انفوجراف</a></li>
+          <li><a href="about.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="white" stroke-width="2"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="white" stroke-width="2"/></svg></span> من نحن</a></li>
+          <li><a href="#"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="white" stroke-width="2"/><circle cx="7" cy="16" r="1" fill="white"/><circle cx="11" cy="16" r="1" fill="white"/><circle cx="15" cy="16" r="1" fill="white"/><path d="m7 11-3-3v-3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3l-3 3" stroke="white" stroke-width="2"/></svg></span> تسجيل دخول</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <a href="articles.html" class="back-link">← العودة إلى المقالات</a>
+    <article class="article-page">
+      <div class="article-header">
+        <h1 class="article-title">هل سيحل الذكاء الاصطناعي محل الصحفي؟</h1>
+        <div class="article-meta">قسم المقالات – منصة تنوير</div>
+      </div>
+      <img src="21.jpg" alt="هل سيحل الذكاء الاصطناعي محل الصحفي؟" class="article-image">
+      <div class="article-content">
+        <p>
+          في السنوات الأخيرة، أصبح الذكاء الاصطناعي (AI) أحد أبرز التقنيات التي أثرت على مختلف المجالات، بما في ذلك الصحافة. مع تزايد استخدام الخوارزميات والروبوتات في جمع الأخبار وتحريرها وحتى نشرها، بدأ الكثيرون يتساءلون: هل سيأتي يوم نستبدل فيه الصحفي البشري بآلة ذكية؟ هذا التساؤل يطرح جدلًا واسعًا بين المهنيين في المجال الإعلامي، ويضع أمامنا تحديات وفرصًا جديدة في آنٍ واحد.
+        </p>
+        <h3 style="color:#007BFF; margin-top:10px;">الذكاء الاصطناعي في الصحافة: الأدوات والحدود</h3>
+        <p>
+          الذكاء الاصطناعي هو قدرة الأنظمة الحاسوبية على تنفيذ مهام تشبه ما يقوم به العقل البشري، مثل التعلم والتحليل واتخاذ القرار. في مجال الصحافة، يُستخدم الذكاء الاصطناعي في تحليل البيانات الضخمة، وتوليد تقارير إخبارية، وتخصيص المحتوى للقراء. فمثلًا، يمكن لخوارزمية ذكية أن تكتب تقريرًا عن مباراة كرة قدم خلال ثوانٍ، اعتمادًا على بيانات المباراة. وقد تستخدم صحف عالمية برامج خاصة لتغطية نتائج الانتخابات بشكل آلي وسريع. لكن، رغم هذه القدرات، فإن الذكاء الاصطناعي لا يستطيع أن يحل محل الصحفي بالكامل.
+        </p>
+        <h3 style="color:#007BFF; margin-top:10px;">ما لا يستطيع الذكاء الاصطناعي فعله</h3>
+        <ul>
+          <li>يفتقر الذكاء الاصطناعي إلى الحس الإنساني والتعاطف وفهم السياق الثقافي والاجتماعي.</li>
+          <li>لا يمتلك القدرة على طرح الأسئلة العميقة التي تميز الصحافة الاستقصائية.</li>
+          <li>لا يفهم التعقيدات الأخلاقية التي ترافق بعض القرارات التحريرية.</li>
+          <li>يعتمد على البيانات المتاحة؛ فإذا كانت منحازة أو ناقصة فستكون نتائجه كذلك.</li>
+        </ul>
+        <h3 style="color:#007BFF; margin-top:10px;">رأي الخبراء: بين التفاؤل والتشكيك</h3>
+        <p>
+          يرى كثير من الخبراء أن الذكاء الاصطناعي سيكون أداة مساعدة لا بديلاً. فالممارسة الصحفية تحتاج إلى إبداع وحساسية إنسانية وتقييم أخلاقي دائم، وهي عناصر لا يمكن أتمتتها بالكامل. وفي المقابل، يمكن للذكاء الاصطناعي تحرير وقت الصحفيين من الأعمال الروتينية، ليركزوا على التحليل والسرد والتحقق.
+        </p>
+        <h3 style="color:#007BFF; margin-top:10px;">الشراكة بين الإنسان والآلة: مستقبل الصحافة</h3>
+        <p>
+          المستقبل الأقرب هو نموذج الشراكة: يتولى الذكاء الاصطناعي المهام المتكررة والسريعة، بينما يقدّم الصحفي القيمة التحريرية والإنسانية. بهذه المعادلة، نصنع محتوى أسرع وأكثر دقة دون التفريط بقيم المهنة.
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>الصفحات</h3>
+          <ul>
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="articles.html">المقالات</a></li>
+            <li><a href="reports.html">التقارير</a></li>
+            <li><a href="interviews.html">المقابلات</a></li>
+            <li><a href="about.html">من نحن</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>الأخبار</h3>
+          <ul>
+            <li><a href="news.html?id=1">فضيحة قائمة كتب صيفية</a></li>
+            <li><a href="news.html?id=2">الذكاء الاصطناعي والصحافة</a></li>
+            <li><a href="news.html?id=3">Google والصحافة الرقمية</a></li>
+            <li><a href="news.html?id=4">ورشة تدريبية للصحفيين</a></li>
+            <li><a href="news.html?id=5">البرلمان العربي والذكاء الاصطناعي</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="logo.png" alt="شعار تنوير" class="footer-logo-img">
+            <h2>تنوير</h2>
+            <p class="footer-tagline">في كل الاتجاهات</p>
+            <p class="footer-description">منصة إعلامية ليبية شاملة</p>
+            <p class="footer-mission">تلتزم المهنية، وتمتاز بالعمق المعلوماتي</p>
+          </div>
+        </div>
+      </div>
+      <div class="social-icons">
+        <a href="https://x.com/tanweermedia?s=21" target="_blank" title="X"><img src="x.png" alt="X"></a>
+        <a href="https://www.facebook.com/profile.php?id=61578329603168&locale=ar_AR" target="_blank" title="Facebook"><img src="facebook.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/tanweer_media?igsh=MXFmb2lxbDZzZWRoeg%3D%3D&utm_source=qr" target="_blank" title="Instagram"><img src="insta.png" alt="Instagram"></a>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="copyright-content">
+        <p>© 2025 جميع الحقوق محفوظة | موقع إخباري تابع إلى شركة تنوير ليبيا للدعاية والخدمات الإعلامية</p>
+        <button class="scroll-to-top" onclick="scrollToTop()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 4L4 12H9V20H15V12H20L12 4Z" fill="#007BFF"/></svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
+
+

@@ -12,6 +12,12 @@
       margin: 0;
       padding: 0;
       background-color: #ffffff;
+      background-image: url('h.jpg');
+      background-image: image-set(url('h.jpg') type('image/jpeg'), url('h.png') type('image/png'));
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       color: #111;
       direction: rtl;
     }
@@ -31,6 +37,7 @@
     .logo img {
       height: 50px;
     }
+    .logo { display: none; }
     .nav-links ul {
       list-style: none;
       display: flex;
@@ -76,6 +83,16 @@
       border-radius: 10px;
       background: #eee;
     }
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      max-width: 1200px;
+      margin: 20px auto 0;
+      padding: 0 20px;
+    }
+    .hero-logo img { height: 120px; width: auto; display: block; }
     .slider-dots {
       position: absolute;
       bottom: 18px;
@@ -276,7 +293,7 @@
     }
     
     .footer-logo-img {
-      width: 60px;
+      width: 200px;
       height: 60px;
       margin-bottom: 15px;
     }
@@ -388,14 +405,14 @@
   <header class="navbar">
     <div class="container">
       <div class="logo">
-        <img src="logo.png" alt="شعار تنوير">
+        <img src="aa.png" alt="شعار تنوير">
       </div>
       <nav class="nav-links">
         <ul>
           <li><a href="index.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="white"/><polyline points="9,22 9,12 15,12 15,22" fill="white"/></svg></span> الرئيسية</a></li>
           <li><a href="articles.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8Z" fill="white"/><polyline points="14,2 14,8 20,8" fill="white"/><line x1="16" y1="13" x2="8" y2="13" stroke="white" stroke-width="2"/><line x1="16" y1="17" x2="8" y2="17" stroke="white" stroke-width="2"/><line x1="10" y1="9" x2="8" y2="9" stroke="white" stroke-width="2"/></svg></span> مقالات</a></li>
           <li><a href="reports.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" fill="none" stroke="white" stroke-width="2"/><line x1="7" y1="9" x2="12" y2="9" stroke="white" stroke-width="2"/><line x1="7" y1="13" x2="17" y2="13" stroke="white" stroke-width="2"/><line x1="7" y1="17" x2="15" y2="17" stroke="white" stroke-width="2"/><line x1="19" y1="7" x2="19" y2="11" stroke="white" stroke-width="2"/><line x1="17" y1="9" x2="21" y2="9" stroke="white" stroke-width="2"/></svg></span> تقارير</a></li>
-          <li><a href="interviews.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" fill="white"/><path d="M19 10v1a7 7 0 0 1-14 0v-1" stroke="white" stroke-width="2"/><line x1="12" y1="19" x2="12" y2="23" stroke="white" stroke-width="2"/><path d="M8 23h8" stroke="white" stroke-width="2"/></svg></span> مقابلات</a></li>
+          <li><a href="interviews.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" fill="white"/><path d="M19 10v1a7 7 0 0 1-14 0v-1" stroke="white" stroke-width="2"/><line x1="12" y1="19" x2="12" y2="23" stroke="white" stroke-width="2"/><path d="M8 23h8" stroke="white" stroke-width="2"/></svg></span> لقاءات</a></li>
           <li><a href="#"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="7" y1="17" x2="17" y2="7" stroke="white" stroke-width="2"/><polyline points="7,7 7,17 17,17" stroke="white" stroke-width="2"/><line x1="12" y1="1" x2="12" y2="5" stroke="white" stroke-width="2"/><line x1="1" y1="12" x2="5" y2="12" stroke="white" stroke-width="2"/><line x1="19" y1="12" x2="23" y2="12" stroke="white" stroke-width="2"/><line x1="12" y1="19" x2="12" y2="23" stroke="white" stroke-width="2"/></svg></span> انفوجراف</a></li>
           <li><a href="about.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="white" stroke-width="2"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="white" stroke-width="2"/></svg></span> من نحن</a></li>
           <li><a href="#"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="white" stroke-width="2"/><circle cx="7" cy="16" r="1" fill="white"/><circle cx="11" cy="16" r="1" fill="white"/><circle cx="15" cy="16" r="1" fill="white"/><path d="m7 11-3-3v-3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3l-3 3" stroke="white" stroke-width="2"/></svg></span> تسجيل دخول</a></li>
@@ -405,9 +422,14 @@
   </header>
 
   <main>
-    <div class="slider">
-      <img id="slider-img" src="صور السلايد/slide1.png" alt="صورة 1">
-      <div class="slider-dots" id="slider-dots"></div>
+    <div class="hero">
+      <div class="hero-logo">
+        <img src="aa.png" alt="شعار تنوير">
+      </div>
+      <div class="slider">
+        <img id="slider-img" src="صور السلايد/slide1.png" alt="صورة 1">
+        <div class="slider-dots" id="slider-dots"></div>
+      </div>
     </div>
 
     <!-- شريط الأخبار المتحرك -->
@@ -439,16 +461,7 @@
           </div>
         </a>
 
-        <a href="news.html?id=2" class="news-card">
-          <img src="2.jpg" alt="الذكاء الاصطناعي يُغيّر قواعد الصحافة" class="news-card-image">
-          <div class="news-card-content">
-            <h3 class="news-card-title">الذكاء الاصطناعي يُغيّر قواعد الصحافة: تجديد في المهام صحافيًا مع تحديات مهنية</h3>
-            <div class="news-card-meta">
-              <span class="news-card-date">22 مايو 2025</span>
-              <span class="news-card-source">الجزيرة نت</span>
-            </div>
-          </div>
-        </a>
+        
 
         <a href="news.html?id=3" class="news-card">
           <img src="3.jpg" alt="Google تقتل الصحافة الرقمية" class="news-card-image">
@@ -472,15 +485,48 @@
         </div>
         </a>
 
-        <a href="news.html?id=5" class="news-card">
-          <img src="6.jpg" alt="البرلمان العربي يدعو لتوطين صناعة الذكاء الاصطناعي" class="news-card-image">
+        <a href="news.html?id=9" class="news-card">
+          <img src="11.jpg" alt="متدربو المؤسسة الليبية للتقنية يزورون LTT" class="news-card-image">
           <div class="news-card-content">
-            <h3 class="news-card-title">البرلمان العربي يدعو لتوطين صناعة الذكاء الاصطناعي في العالم العربي</h3>
+            <h3 class="news-card-title">متدربو برنامج المؤسسة الليبية للتقنية يزورون شركة LTT لتعزيز خبراتهم العملية</h3>
             <div class="news-card-meta">
-              <span class="news-card-date">3 فبراير 2025</span>
-              <span class="news-card-source">وكالة الأنباء الليبية</span>
+              <span class="news-card-date">10 سبتمبر 2025</span>
+              <span class="news-card-source">Technology.ly</span>
+            </div>
           </div>
-        </div>
+        </a>
+
+        <a href="news.html?id=10" class="news-card">
+          <img src="13.jpg" alt="التحول الرقمي في القطاع الصحي" class="news-card-image">
+          <div class="news-card-content">
+            <h3 class="news-card-title">اتفاق بين مصرف ليبيا المركزي ووزارة الصحة لأتمتة القطاع الصحي وتوسيع المدفوعات الإلكترونية</h3>
+            <div class="news-card-meta">
+              <span class="news-card-date">03 أغسطس 2025</span>
+              <span class="news-card-source">مصرف ليبيا المركزي – CBL</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="news.html?id=11" class="news-card">
+          <img src="12.jpg" alt="ليبيا Vision 2050" class="news-card-image">
+          <div class="news-card-content">
+            <h3 class="news-card-title">وزارة التخطيط تطلق “ليبيا Vision 2050” بخارطة طريق تركز على التحول الرقمي</h3>
+            <div class="news-card-meta">
+              <span class="news-card-date">01 سبتمبر 2025</span>
+              <span class="news-card-source">Libya Observer</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="news.html?id=12" class="news-card">
+          <img src="14.jpg" alt="الخطة الوطنية لتوزيع الترددات 2025" class="news-card-image">
+          <div class="news-card-content">
+            <h3 class="news-card-title">هيئة الاتصالات تطلق الخطة الوطنية لتوزيع الترددات 2025</h3>
+            <div class="news-card-meta">
+              <span class="news-card-date">26 أغسطس 2025</span>
+              <span class="news-card-source">Alwasat.ly</span>
+            </div>
+          </div>
         </a>
 
         <a href="news.html?id=6" class="news-card">
@@ -494,16 +540,7 @@
         </div>
         </a>
 
-        <a href="news.html?id=7" class="news-card">
-          <img src="8.jpg" alt="أسهم علي بابا ترتفع بعد كشف نموذج ذكاء اصطناعي" class="news-card-image">
-          <div class="news-card-content">
-            <h3 class="news-card-title">أسهم علي بابا ترتفع بعد كشف نموذج ذكاء اصطناعي ينافس ديب سيك</h3>
-            <div class="news-card-meta">
-              <span class="news-card-date">7 مارس 2025</span>
-              <span class="news-card-source">وكالة الأنباء الليبية</span>
-          </div>
-        </div>
-        </a>
+        
       </div>
     </section>
   </main>
@@ -517,7 +554,7 @@
             <li><a href="index.html">الرئيسية</a></li>
             <li><a href="articles.html">المقالات</a></li>
             <li><a href="reports.html">التقارير</a></li>
-            <li><a href="interviews.html">المقابلات</a></li>
+            <li><a href="interviews.html">اللقاءات</a></li>
             <li><a href="about.html">من نحن</a></li>
           </ul>
         </div>

@@ -3,13 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>المقابلات | تنوير</title>
+  <title>اللقاءات | تنوير</title>
   <style>
     body {
       font-family: 'Cairo', sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f7f9fc;
+      background-image: url('h.jpg');
+      background-image: image-set(url('h.jpg') type('image/jpeg'), url('h.png') type('image/png'));
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       color: #111;
       direction: rtl;
     }
@@ -62,7 +68,7 @@
     .interview {
       text-align: right;
       margin: 40px auto;
-      max-width: 900px;
+      max-width: 1000px;
     }
     .interview-header {
       background: #fff;
@@ -70,28 +76,36 @@
       border-radius: 12px;
       box-shadow: 0 4px 16px rgba(0, 123, 255, 0.10);
       margin-bottom: 30px;
-      text-align: center;
-    }
-    .guest-image {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 20px;
-      display: block;
-      border: 4px solid #007BFF;
     }
     .interview-title {
       color: #007BFF;
-      font-size: 24px;
-      margin-bottom: 15px;
-      margin-top: 0;
+      font-size: 26px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .interview-layout {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 25px;
+      text-align: right;
+    }
+    .guest-image {
+      width: 220px;
+      height: 220px;
+      border-radius: 12px; /* مربعة بزوايا ناعمة */
+      object-fit: cover;
+      border: 4px solid #007BFF;
+      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+      flex-shrink: 0;
     }
     .interview-intro {
+      flex: 1;
       color: #333;
       font-size: 18px;
       line-height: 1.8;
-      margin-bottom: 0;
+      margin: 0;
+      text-align: justify;
     }
     .qa-section {
       background: #fff;
@@ -131,12 +145,10 @@
       color: white;
       margin-top: 40px;
     }
-    
     .footer-main {
       padding: 40px 20px;
       border-bottom: 1px solid #333;
     }
-    
     .footer-content {
       display: flex;
       justify-content: space-between;
@@ -144,144 +156,63 @@
       margin: 0 auto;
       gap: 40px;
     }
-    
-    .footer-section {
-      flex: 1;
-    }
-    
+    .footer-section { flex: 1; }
     .footer-section h3 {
       color: #FF8C00;
       font-size: 18px;
       margin-bottom: 20px;
       font-weight: bold;
     }
-    
-    .footer-section ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .footer-section ul li {
-      margin-bottom: 12px;
-    }
-    
+    .footer-section ul { list-style: none; padding: 0; margin: 0; }
+    .footer-section ul li { margin-bottom: 12px; }
     .footer-section ul li a {
-      color: #ccc;
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.3s ease;
+      color: #ccc; text-decoration: none; font-size: 14px; transition: color 0.3s ease;
     }
-    
-    .footer-section ul li a:hover {
-      color: #FF8C00;
-    }
-    
-    .footer-logo {
-      text-align: center;
-    }
-    
-    .footer-logo-img {
-      width: 60px;
-      height: 60px;
-      margin-bottom: 15px;
-    }
-    
-    .footer-logo h2 {
-      color: white;
-      font-size: 28px;
-      margin: 0 0 10px 0;
-      font-weight: bold;
-    }
-    
-    .footer-tagline {
-      color: #FF8C00;
-      font-size: 16px;
-      margin: 0 0 15px 0;
-      font-weight: bold;
-    }
-    
-    .footer-description {
-      color: #ccc;
-      font-size: 14px;
-      margin: 0 0 8px 0;
-    }
-    
-    .footer-mission {
-      color: #ccc;
-      font-size: 14px;
-      margin: 0;
-      line-height: 1.5;
-    }
-    
+    .footer-section ul li a:hover { color: #FF8C00; }
+    .footer-logo { text-align: center; }
+    .footer-logo-img { width: 200px; height: 60px; margin-bottom: 15px; }
+    .footer-logo h2 { color: white; font-size: 28px; margin: 0 0 10px 0; font-weight: bold; }
+    .footer-tagline { color: #FF8C00; font-size: 16px; margin: 0 0 15px 0; font-weight: bold; }
+    .footer-description, .footer-mission { color: #ccc; font-size: 14px; margin: 0 0 8px 0; }
+    .footer-mission { line-height: 1.5; }
     .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 30px;
-      flex-wrap: wrap;
+      display: flex; justify-content: center; gap: 15px; margin-top: 30px; flex-wrap: wrap;
     }
-    
     .social-icons a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      background-color: white;
-      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; background-color: white; border-radius: 50%;
       transition: transform 0.3s ease;
     }
-    
-    .social-icons a:hover {
-      transform: scale(1.1);
-    }
-    
-    .social-icons img {
-      width: 20px;
-      height: 20px;
-    }
-    
+    .social-icons a:hover { transform: scale(1.1); }
+    .social-icons img { width: 20px; height: 20px; }
     .footer-copyright {
-      background-color: #000;
-      padding: 20px;
-      border-top: 1px solid #333;
+      background-color: #000; padding: 20px; border-top: 1px solid #333;
     }
-    
     .copyright-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      max-width: 1200px; margin: 0 auto;
     }
-    
-    .copyright-content p {
-      color: #ccc;
-      font-size: 14px;
-      margin: 0;
-    }
-    
+    .copyright-content p { color: #ccc; font-size: 14px; margin: 0; }
     .scroll-to-top {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-      border-radius: 50%;
+      background: none; border: none; cursor: pointer; padding: 8px; border-radius: 50%;
       transition: background-color 0.3s ease;
     }
-    
-    .scroll-to-top:hover {
-      background-color: rgba(0, 123, 255, 0.1);
-    }
-    
+    .scroll-to-top:hover { background-color: rgba(0, 123, 255, 0.1); }
+
+    /* Responsive */
     @media (max-width: 768px) {
+      .interview-layout {
+        flex-direction: column;
+        text-align: center;
+      }
+      .guest-image {
+        margin: 0 auto 20px;
+      }
       .footer-content {
         flex-direction: column;
         text-align: center;
         gap: 30px;
       }
-      
       .copyright-content {
         flex-direction: column;
         gap: 15px;
@@ -296,12 +227,12 @@
       <div class="logo">
         <img src="logo.png" alt="شعار تنوير">
       </div>
-       <nav class="nav-links">
+      <nav class="nav-links">
         <ul>
           <li><a href="index.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="white"/><polyline points="9,22 9,12 15,12 15,22" fill="white"/></svg></span> الرئيسية</a></li>
           <li><a href="articles.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8Z" fill="white"/><polyline points="14,2 14,8 20,8" fill="white"/><line x1="16" y1="13" x2="8" y2="13" stroke="white" stroke-width="2"/><line x1="16" y1="17" x2="8" y2="17" stroke="white" stroke-width="2"/><line x1="10" y1="9" x2="8" y2="9" stroke="white" stroke-width="2"/></svg></span> مقالات</a></li>
           <li><a href="reports.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" fill="none" stroke="white" stroke-width="2"/><line x1="7" y1="9" x2="12" y2="9" stroke="white" stroke-width="2"/><line x1="7" y1="13" x2="17" y2="13" stroke="white" stroke-width="2"/><line x1="7" y1="17" x2="15" y2="17" stroke="white" stroke-width="2"/><line x1="19" y1="7" x2="19" y2="11" stroke="white" stroke-width="2"/><line x1="17" y1="9" x2="21" y2="9" stroke="white" stroke-width="2"/></svg></span> تقارير</a></li>
-          <li><a href="interviews.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" fill="white"/><path d="M19 10v1a7 7 0 0 1-14 0v-1" stroke="white" stroke-width="2"/><line x1="12" y1="19" x2="12" y2="23" stroke="white" stroke-width="2"/><path d="M8 23h8" stroke="white" stroke-width="2"/></svg></span> مقابلات</a></li>
+          <li><a href="interviews.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" fill="white"/><path d="M19 10v1a7 7 0 0 1-14 0v-1" stroke="white" stroke-width="2"/><line x1="12" y1="19" x2="12" y2="23" stroke="white" stroke-width="2"/><path d="M8 23h8" stroke="white" stroke-width="2"/></svg></span> لقاءات</a></li>
           <li><a href="#"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="7" y1="17" x2="17" y2="7" stroke="white" stroke-width="2"/><polyline points="7,7 7,17 17,17" stroke="white" stroke-width="2"/><line x1="12" y1="1" x2="12" y2="5" stroke="white" stroke-width="2"/><line x1="1" y1="12" x2="5" y2="12" stroke="white" stroke-width="2"/><line x1="19" y1="12" x2="23" y2="12" stroke="white" stroke-width="2"/><line x1="12" y1="19" x2="12" y2="23" stroke="white" stroke-width="2"/></svg></span> انفوجراف</a></li>
           <li><a href="about.html"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="white" stroke-width="2"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="white" stroke-width="2"/></svg></span> من نحن</a></li>
           <li><a href="#"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="white" stroke-width="2"/><circle cx="7" cy="16" r="1" fill="white"/><circle cx="11" cy="16" r="1" fill="white"/><circle cx="15" cy="16" r="1" fill="white"/><path d="m7 11-3-3v-3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3l-3 3" stroke="white" stroke-width="2"/></svg></span> تسجيل دخول</a></li>
@@ -309,23 +240,24 @@
       </nav>
     </div>
   </header>
+
   <main class="main-content">
+    <!-- لقاء محمد الورفلي -->
     <section class="interview">
       <div class="interview-header">
-        <img src="5.jpg" alt="محمد الورفلي" class="guest-image">
-        <h1 class="interview-title">لقاء مع محمد الورفلي</h1>
-        <p class="interview-intro">
-          ضمن سلسلة اللقاءات الملهمة اللي نقدموها في منصة تنوير، حبينا نسلّط الضوء على تجربة شاب ليبي مميز، بدأ مشواره الإعلامي من سن مبكرة، وسرعان ما صنع لنفسه اسم في الساحة الإعلامية المحلية.
-
-          ضيفنا هو محمد الورفلي، من مواليد 2003 ومن سكان مدينة طرابلس 
-          بدأ العمل في مجال الإعلام سنة 2020، واشتغل في عدد من الإذاعات مثل راديو لنتواصل وراديو دريم، وغيرها من المنصات. 
-          تنقل بين أدوار متعددة كمذيع، ومراسل، ومنتج، ومساعد منتج، ومقدم برامج. 
-          كما شارك في تغطية وتقديم العديد من المؤتمرات العلمية والاحتفالات الوطنية الكبرى مثل عيد الاستقلال 24 ديسمبر وذكرى 17 فبراير.
-
-          اشتغل في قنوات معروفة منها الوطنية وسلام، ومع كل خطوة زاد من رصيده المهني، حتى وصل مؤخرًا إلى ختام مساره الإعلامي ليدخل مجال الطيران المدني، متجهًا نحو تخصص الضيافة الجوية، اللي يراه أقرب لتحقيق حلم الطفولة المرتبط دائمًا بالسماء والطيران.
-
-          من خلال هذا اللقاء، حبّينا نعرف أكثر عن تجربته، آرائه، وتطلعاته في ظل التغيرات اللي يشهدها الإعلام، خاصة مع دخول الذكاء الاصطناعي كعنصر فاعل في المجال.
-        </p>
+        <h1 class="interview-title">محمد الورفلي في سطور</h1>
+        <div class="interview-layout">
+          <img src="5.jpg" alt="محمد الورفلي" class="guest-image">
+          <p class="interview-intro">
+            ضمن سلسلة اللقاءات الملهمة اللي نقدموها في منصة تنوير، حبينا نسلّط الضوء على تجربة شاب ليبي مميز، بدأ مشواره الإعلامي من سن مبكرة، وسرعان ما صنع لنفسه اسم في الساحة الإعلامية المحلية.<br><br>
+            ضيفنا هو محمد الورفلي، من مواليد 2003 ومن سكان مدينة طرابلس 
+            بدأ العمل في مجال الإعلام سنة 2020، واشتغل في عدد من الإذاعات مثل راديو لنتواصل وراديو دريم، وغيرها من المنصات. 
+            تنقل بين أدوار متعددة كمذيع، ومراسل، ومنتج، ومساعد منتج، ومقدم برامج. 
+            كما شارك في تغطية وتقديم العديد من المؤتمرات العلمية والاحتفالات الوطنية الكبرى مثل عيد الاستقلال 24 ديسمبر وذكرى 17 فبراير.<br><br>
+            اشتغل في قنوات معروفة منها الوطنية وسلام، ومع كل خطوة زاد من رصيده المهني، حتى وصل مؤخرًا إلى ختام مساره الإعلامي ليدخل مجال الطيران المدني، متجهًا نحو تخصص الضيافة الجوية، اللي يراه أقرب لتحقيق حلم الطفولة المرتبط دائمًا بالسماء والطيران.<br><br>
+            من خلال هذا اللقاء، حبّينا نعرف أكثر عن تجربته، آرائه، وتطلعاته في ظل التغيرات اللي يشهدها الإعلام، خاصة مع دخول الذكاء الاصطناعي كعنصر فاعل في المجال.
+          </p>
+        </div>
       </div>
 
       <div class="qa-section">
@@ -396,13 +328,16 @@
 
     <hr class="blue-separator">
 
+    <!-- لقاء رجاء صالح -->
     <section class="interview">
       <div class="interview-header">
-        <img src="رجاء صالح.png" alt="رجاء صالح" class="guest-image">
         <h1 class="interview-title">لقاء مع رجاء صالح</h1>
-        <p class="interview-intro">
-          الإعلامية الليبية رجاء صالح، صاحبة حضور لافت وتجربة مميزة في مجال الإعلام. في هذا الحوار، تحدثنا معها عن علاقتها بالإعلام والتكنولوجيا، ورؤيتها لمستقبل الصحافة في ظل التحولات الرقمية. كما شاركتنا تجربتها في إدارة قناة New Libya، وأفكارها حول دور الإعلام في نقل الواقع بروح مهنية ومختلفة.
-        </p>
+        <div class="interview-layout">
+          <img src="99.jpg" alt="رجاء صالح" class="guest-image">
+          <p class="interview-intro">
+            الإعلامية الليبية رجاء صالح، صاحبة حضور لافت وتجربة مميزة في مجال الإعلام. في هذا الحوار، تحدثنا معها عن علاقتها بالإعلام والتكنولوجيا، ورؤيتها لمستقبل الصحافة في ظل التحولات الرقمية. كما شاركتنا تجربتها في إدارة قناة New Libya، وأفكارها حول دور الإعلام في نقل الواقع بروح مهنية ومختلفة.
+          </p>
+        </div>
       </div>
 
       <div class="qa-section">
@@ -414,56 +349,56 @@
 
       <div class="qa-section">
         <h2 class="question">خلال رحلتك المهنية، واجهتي تحديات كثيرة أكيد، شنو أصعب موقف مريتِ به كمذيعة؟</h2>
-                <p class="answer">
+        <p class="answer">
           حياتي كلها تحديات ونؤمن بالتحدي والمنافسة معظم المشاكل اللي واجهتني كانت مش عملية بالعكس كل مدراء القنوات اللي اشتغت فيهم دعموني وشجعوني ووقفوا معاي ولكن المشكلة كانت مجرد غيرة من بعض الزميلات لاني كنت بعمر صغير ونقدم في برامج كبيرة والباقي كل الامور كانت كويسة جدا ولكن سبحان الله الحسد والغيرة  وعدم التقبل كان من بعض الزملاء فقط
         </p>
       </div>
 
       <div class="qa-section">
         <h2 class="question">كيف قدرتِ تفرضي اسمك في وسط إعلامي مليان بالمنافسة والتقلبات؟</h2>
-                <p class="answer">
+        <p class="answer">
           قدرت نتميز لاني نقدم في برامج اني نختارها ونعرف شن يمشي مع المجتمع الليبي والعائلة الليبية لاني نتفرج علي برامجي مع عائلتي ونقدر ونحترم العادات والتقاليد واللمة اللييبة اللي مفيهاش اسفاف او اي شي يخدش الذوق العام كل برامجي الحمد لله نجحت ولاقت قبول كبير من المشاهد
         </p>
       </div>
 
       <div class="qa-section">
         <h2 class="question">قناة New Libya انطلقت منذ 2022، واليوم بدت معروفة أكثر في الساحة.. كيف تقيمي التجربة بعد مرور أكثر من عامين؟</h2>
-                <p class="answer">
+        <p class="answer">
           قناة ليبيا الجديدة هذا مشروعي وحلمي اني نأسس قناة ليبية عربية غير سياسية ومحايدة ولا تنحاز لاي طرف بالعكس تنحاز للمواطن وللعائلة تقريبا التأسيس والتجهيز والتحضير خذي مني اكثر من سنة حطيت فيها كل جهدي وتركيزي وتعبت جدا باش طلعت للنور وكانت حلم وتحقق وسعادتي بها لا توصف وخاصة انها محبوبة من الصغار والكبار سواء الليبين او العرب يعني واجهت تحديات وصعوبات وضغوطات منقدرش نعبر عليها وناس حاولت تحبط وتفشل المشروع ولكن حمد لله نجحت بفضل الله
         </p>
       </div>
 
       <div class="qa-section">
         <h2 class="question">شنو أبرز التحديات اللي واجهتكم في بناء هوية القناة والمحافظة على حيادها؟</h2>
-                <p class="answer">
+        <p class="answer">
           التحديات اللي واجتهنا كانت كيف نقدرو نستمروا بنفس المستوي دون التوجه او الانحياز وكانت زي ما حكيت محاولات كثيرة تبي تحبطنا وتفشلنا ولكن الاصرار والثقة في نفسنا خلتنا نستمروا بنفس المبدا قناة ليييا الجديدة قناة كل الليبيين دون استثناء شرق غرب جنوب كلنا اهل وخوت
         </p>
       </div>
 
       <div class="qa-section">
         <h2 class="question">القناة فيها محتوى منوّع يلامس العائلة الليبية، كيف تختاري نوعية البرامج والمذيعين؟</h2>
-                <p class="answer">
+        <p class="answer">
           نختارو في نوعية البرامج اللي تهدف للم الشمل البرامج اللي تبرز العادات التقاليد وتبرز الهوية الليبية والزي الليبي والحوش الليبي والاكل الليبي والكرم والجود والفزعة الليبية وطبعا ركزنا علي طلبات المشاهدين اللي كانت اهمها الاعمال الليبية القديمة الهادفة كلها رجعناها للمشاهد واضافة لببرامجنا واعمالنا اللي انتجتها القناة ومشت علي نفس الخطي
         </p>
       </div>
 
       <div class="qa-section">
         <h2 class="question">هل في خطط مستقبلية لتوسيع عمل القناة؟ أو فتح المجال للشباب وطلبة الإعلام يشاركوا أو يتدربوا ضمن فريق العمل؟</h2>
-                <p class="answer">
+        <p class="answer">
           اكيد فيه خطط لتوسيع القناة وهي حاليا عندها مكاتب وفروع داخل وخارج ليبيا وكل مدة  نختارو في مجموعة خريجين او متدربين ياخدو عندنا فترة تدريب علي التقديم التلفزيوني وشغلنا منهم مجموعة
         </p>
       </div>
 
       <div class="qa-section">
         <h2 class="question">مؤخرًا بدينا نسمعو عن دخول الذكاء الاصطناعي للإعلام.. برأيك، هل هو تهديد ولا فرصة؟</h2>
-                <p class="answer">
+        <p class="answer">
           الذكاء الإصطناعي هو افضل اختراع العصر في حالة انه استخدمناه بالطريقة الصحيحة راح يساعدنا في الشغل الاعلامي بشكل كبير ولكن او تم العمل بيه بشكل سئ وخاطي النتيجة راح تكون كارثية للأسف
         </p>
       </div>
 
       <div class="qa-section">
         <h2 class="question">كيف تشوفي تأثير هالتقنيات على شغل الصحفي أو المذيع في المستقبل؟</h2>
-                <p class="answer">
+        <p class="answer">
           تأثير التقنيات علي الصحفي ليه ايجابيات وسلبيات
           <br><br>
           الإيجابي انها ممكن تساعدة في الشغل بشكل ادق واسرع وينجز اكبر عمل في وقت قصير وتسهل مهامة اكثر والسلبي ان الصحفي يعتمد عليها اعتماد كلي ويصبح غير معتمد علي نفسه في تقصي الحقايق والأخبار الدقيقة من مصدرها الرسمي
@@ -472,21 +407,21 @@
 
       <div class="qa-section">
         <h2 class="question">منصتنا "تنوير" تحاول تبسّط مفاهيم الذكاء الاصطناعي لطلبة الإعلام، شنو رأيك في هالفكرة؟ وهل ممكن تشوفيها مفيدة لمستقبلهم؟</h2>
-                <p class="answer">
+        <p class="answer">
           الذكاء الصناعي اصبح يشاركنا يومياتنا في جميع مجالات الحياة ولكن يجب التعامل معاه بحذر ودا ننسي انه الذكاء الصناعي في النهاية من صنع البشر ولازال البشر هو اللي يتحكم فيه ويعطيه المعلومات واكيد يفيد المذيع والصحفي في المستقبل ويسهل عليه الشغل الصعب ويقلل من المدة الزمنية ايضا في انجاز اي عمل
         </p>
       </div>
 
       <div class="qa-section">
         <h2 class="question">لو تقدري توجهي رسالة لطلبة الإعلام في ليبيا، شنو تقولي لهم اليوم؟</h2>
-                <p class="answer">
+        <p class="answer">
           وفي الاخير نقول لكل الاعلاميين ان الاعلام هو رسالة وضروري توصل الرسالة بكل وضوح ومصداقية وشفافية للمواطن وننصح اي اعلامي انه يكون صحفي حر لا يباع ولا يشتري
         </p>
       </div>
 
       <div class="qa-section">
         <h2 class="question">وكلمة أخيرة لمنصة "تنوير" ومحتواها اللي نحاولو نقدموه.</h2>
-                <p class="answer">
+        <p class="answer">
           كلمتي لمنصة تنوير 
           <br><br>
           شكرا علي اختياركم ليا شخصيا لهذا اللقاء
@@ -496,6 +431,7 @@
       </div>
     </section>
   </main>
+
   <footer class="footer">
     <div class="footer-main">
       <div class="footer-content">
@@ -509,7 +445,6 @@
             <li><a href="about.html">من نحن</a></li>
           </ul>
         </div>
-        
         <div class="footer-section">
           <h3>الأخبار</h3>
           <ul>
@@ -520,7 +455,6 @@
             <li><a href="news.html?id=5">البرلمان العربي والذكاء الاصطناعي</a></li>
           </ul>
         </div>
-        
         <div class="footer-section">
           <div class="footer-logo">
             <img src="logo.png" alt="شعار تنوير" class="footer-logo-img">
@@ -531,7 +465,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="social-icons">
         <a href="https://x.com/tanweermedia?s=21" target="_blank" title="X">
           <img src="x.png" alt="X">
@@ -544,7 +478,7 @@
         </a>
       </div>
     </div>
-    
+
     <div class="footer-copyright">
       <div class="copyright-content">
         <p>© 2025 جميع الحقوق محفوظة | موقع إخباري تابع إلى شركة تنوير ليبيا للدعاية والخدمات الإعلامية</p>
@@ -555,15 +489,12 @@
         </button>
       </div>
     </div>
-      </footer>
-    
-    <script>
-      function scrollToTop() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      }
-    </script>
-  </body>
-</html> 
+  </footer>
+
+  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
